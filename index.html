@@ -206,13 +206,13 @@ filter-stations    </h1>
 </span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>
 </span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">        Parameters:</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a><span class="sd">        -----------</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">            - station (str, optional): Code for a single station to retrieve information for. Defaults to None.</span>
-</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">            - multipleStations (list, optional): List of station codes to retrieve information for multiple stations. Defaults to [].</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">            - countrycode (str, optional): Country code to retrieve information for all stations located in the country. Defaults to None.</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">        - station (str, optional): Code for a single station to retrieve information for. Defaults to None.</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">        - multipleStations (list, optional): List of station codes to retrieve information for multiple stations. Defaults to [].</span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">        - countrycode (str, optional): Country code to retrieve information for all stations located in the country. Defaults to None.</span>
 </span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>
 </span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a><span class="sd">        Returns:</span>
 </span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="sd">        -----------</span>
-</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">            pandas.DataFrame: DataFrame containing information about the requested weather stations.</span>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">        - pandas.DataFrame: DataFrame containing information about the requested weather stations.</span>
 </span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>
 </span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>        <span class="c1"># Make API request and convert response to DataFrame</span>
@@ -237,7 +237,7 @@ filter-stations    </h1>
 </span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>
 </span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a><span class="sd">        Returns:</span>
 </span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a><span class="sd">        -----------</span>
-</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a><span class="sd">            dict: Dictionary containing information about available weather variables, keyed by variable shortcode.</span>
+</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a><span class="sd">        - dict: Dictionary containing information about available weather variables, keyed by variable shortcode.</span>
 </span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>        <span class="c1"># Make API request and create dictionary of variables</span>
 </span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__request</span><span class="p">(</span><span class="n">endpoints</span><span class="p">[</span><span class="s1">&#39;VARIABLES&#39;</span><span class="p">],</span> <span class="p">{})</span>
@@ -277,12 +277,12 @@ filter-stations    </h1>
 </span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a>
 </span><span id="L-142"><a href="#L-142"><span class="linenos">142</span></a><span class="sd">        Parameters:</span>
 </span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a><span class="sd">        -----------</span>
-</span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a><span class="sd">            - station (str): Code for the station to find neighbouring stations for.</span>
-</span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a><span class="sd">            - number (int, optional): Number of neighbouring stations to return. Defaults to 5.</span>
+</span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a><span class="sd">        - station (str): Code for the station to find neighbouring stations for.</span>
+</span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a><span class="sd">        - number (int, optional): Number of neighbouring stations to return. Defaults to 5.</span>
 </span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>
 </span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a><span class="sd">        Returns:</span>
 </span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a><span class="sd">        -----------</span>
-</span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a><span class="sd">            dict: Dictionary containing the station codes and distances of the nearest neighbouring stations.</span>
+</span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a><span class="sd">        - dict: Dictionary containing the station codes and distances of the nearest neighbouring stations.</span>
 </span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a>        <span class="c1"># Get latitude and longitude of specified station</span>
 </span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a>        <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_stations_info</span><span class="p">(</span><span class="n">station</span><span class="p">)[[</span><span class="s1">&#39;location.longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;location.latitude&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -302,12 +302,12 @@ filter-stations    </h1>
 </span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a>
 </span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a><span class="sd">        Parameters:</span>
 </span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a><span class="sd">        -----------</span>
-</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a><span class="sd">            - columns (list of str, optional): List of column names to include in the returned DataFrame. </span>
+</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a><span class="sd">        - columns (list of str, optional): List of column names to include in the returned DataFrame. </span>
 </span><span id="L-170"><a href="#L-170"><span class="linenos">170</span></a><span class="sd">                If None, all columns are included. Defaults to None.</span>
 </span><span id="L-171"><a href="#L-171"><span class="linenos">171</span></a>
 </span><span id="L-172"><a href="#L-172"><span class="linenos">172</span></a><span class="sd">        Returns:</span>
 </span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a><span class="sd">        -----------</span>
-</span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a><span class="sd">            pandas.DataFrame: DataFrame containing trained models with the specified columns.</span>
+</span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a><span class="sd">        - pandas.DataFrame: DataFrame containing trained models with the specified columns.</span>
 </span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a>        <span class="n">reqUrl</span> <span class="o">=</span> <span class="s2">&quot;https://tahmorqctest.eu-de.mybluemix.net/api/models&quot;</span> <span class="c1"># endpoint</span>
 </span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__request</span><span class="p">(</span><span class="n">reqUrl</span><span class="p">,</span> <span class="p">{})</span>
@@ -323,11 +323,11 @@ filter-stations    </h1>
 </span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a>
 </span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a><span class="sd">        Parameters:</span>
 </span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a><span class="sd">        -----------</span>
-</span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a><span class="sd">            - dataframe (pandas.DataFrame): DataFrame containing weather variable data.</span>
+</span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a><span class="sd">        - dataframe (pandas.DataFrame): DataFrame containing weather variable data.</span>
 </span><span id="L-191"><a href="#L-191"><span class="linenos">191</span></a>
 </span><span id="L-192"><a href="#L-192"><span class="linenos">192</span></a><span class="sd">        Returns:</span>
 </span><span id="L-193"><a href="#L-193"><span class="linenos">193</span></a><span class="sd">        -----------</span>
-</span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a><span class="sd">            pandas.DataFrame: DataFrame containing aggregated weather variable data, summed by day.</span>
+</span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a><span class="sd">        - pandas.DataFrame: DataFrame containing aggregated weather variable data, summed by day.</span>
 </span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a>        <span class="c1"># Reset index and rename columns</span>
 </span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a>        <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -359,7 +359,7 @@ filter-stations    </h1>
 </span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a>
 </span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a><span class="sd">            Returns:</span>
 </span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a><span class="sd">            --------</span>
-</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a><span class="sd">            pd.DataFrame</span>
+</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a><span class="sd">            - pd.DataFrame</span>
 </span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a><span class="sd">                A DataFrame containing the measurements.</span>
 </span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a><span class="sd">            &quot;&quot;&quot;</span>            
 </span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a>            <span class="c1">#print(&#39;Get measurements&#39;, station, startDate, endDate, variables)</span>
@@ -486,16 +486,16 @@ filter-stations    </h1>
 </span><span id="L-350"><a href="#L-350"><span class="linenos">350</span></a>
 </span><span id="L-351"><a href="#L-351"><span class="linenos">351</span></a><span class="sd">        Parameters:</span>
 </span><span id="L-352"><a href="#L-352"><span class="linenos">352</span></a><span class="sd">        -----------</span>
-</span><span id="L-353"><a href="#L-353"><span class="linenos">353</span></a><span class="sd">            - stations_list (list): A list of strings containing the names of the stations to retrieve data from.</span>
-</span><span id="L-354"><a href="#L-354"><span class="linenos">354</span></a><span class="sd">            - csv_file (str): The name of the CSV file to save the data to.</span>
-</span><span id="L-355"><a href="#L-355"><span class="linenos">355</span></a><span class="sd">            - startDate (str): The start date for the measurements, in the format &#39;yyyy-mm-dd&#39;.</span>
-</span><span id="L-356"><a href="#L-356"><span class="linenos">356</span></a><span class="sd">            - endDate (str): The end date for the measurements, in the format &#39;yyyy-mm-dd&#39;.</span>
-</span><span id="L-357"><a href="#L-357"><span class="linenos">357</span></a><span class="sd">            - variables (list): A list of strings containing the names of the variables to retrieve.</span>
-</span><span id="L-358"><a href="#L-358"><span class="linenos">358</span></a><span class="sd">            - dataset (str): The name of the dataset to retrieve the data from. Default is &#39;controlled&#39;.</span>
+</span><span id="L-353"><a href="#L-353"><span class="linenos">353</span></a><span class="sd">        - stations_list (list): A list of strings containing the names of the stations to retrieve data from.</span>
+</span><span id="L-354"><a href="#L-354"><span class="linenos">354</span></a><span class="sd">        - csv_file (str): The name of the CSV file to save the data to.</span>
+</span><span id="L-355"><a href="#L-355"><span class="linenos">355</span></a><span class="sd">        - startDate (str): The start date for the measurements, in the format &#39;yyyy-mm-dd&#39;.</span>
+</span><span id="L-356"><a href="#L-356"><span class="linenos">356</span></a><span class="sd">        - endDate (str): The end date for the measurements, in the format &#39;yyyy-mm-dd&#39;.</span>
+</span><span id="L-357"><a href="#L-357"><span class="linenos">357</span></a><span class="sd">        - variables (list): A list of strings containing the names of the variables to retrieve.</span>
+</span><span id="L-358"><a href="#L-358"><span class="linenos">358</span></a><span class="sd">        - dataset (str): The name of the dataset to retrieve the data from. Default is &#39;controlled&#39;.</span>
 </span><span id="L-359"><a href="#L-359"><span class="linenos">359</span></a>
 </span><span id="L-360"><a href="#L-360"><span class="linenos">360</span></a><span class="sd">        Returns:</span>
 </span><span id="L-361"><a href="#L-361"><span class="linenos">361</span></a><span class="sd">        -----------</span>
-</span><span id="L-362"><a href="#L-362"><span class="linenos">362</span></a><span class="sd">            df (pandas.DataFrame): A DataFrame containing the aggregated data for all stations.</span>
+</span><span id="L-362"><a href="#L-362"><span class="linenos">362</span></a><span class="sd">        - df (pandas.DataFrame): A DataFrame containing the aggregated data for all stations.</span>
 </span><span id="L-363"><a href="#L-363"><span class="linenos">363</span></a>
 </span><span id="L-364"><a href="#L-364"><span class="linenos">364</span></a><span class="sd">        Raises:</span>
 </span><span id="L-365"><a href="#L-365"><span class="linenos">365</span></a>
@@ -563,16 +563,16 @@ filter-stations    </h1>
 </span><span id="L-427"><a href="#L-427"><span class="linenos">427</span></a>
 </span><span id="L-428"><a href="#L-428"><span class="linenos">428</span></a><span class="sd">        Parameters:</span>
 </span><span id="L-429"><a href="#L-429"><span class="linenos">429</span></a><span class="sd">        -----------</span>
-</span><span id="L-430"><a href="#L-430"><span class="linenos">430</span></a><span class="sd">            - lat (float): The latitude of the starting point in decimal degrees.</span>
-</span><span id="L-431"><a href="#L-431"><span class="linenos">431</span></a><span class="sd">            - lon (float): The longitude of the starting point in decimal degrees.</span>
-</span><span id="L-432"><a href="#L-432"><span class="linenos">432</span></a><span class="sd">            - distance (float): The distance in kilometers from the starting point to the new point.</span>
-</span><span id="L-433"><a href="#L-433"><span class="linenos">433</span></a><span class="sd">            - bearing (float): The bearing in degrees from the starting point to the new point,</span>
-</span><span id="L-434"><a href="#L-434"><span class="linenos">434</span></a><span class="sd">                measured clockwise from true north.</span>
+</span><span id="L-430"><a href="#L-430"><span class="linenos">430</span></a><span class="sd">        - lat (float): The latitude of the starting point in decimal degrees.</span>
+</span><span id="L-431"><a href="#L-431"><span class="linenos">431</span></a><span class="sd">        - lon (float): The longitude of the starting point in decimal degrees.</span>
+</span><span id="L-432"><a href="#L-432"><span class="linenos">432</span></a><span class="sd">        - distance (float): The distance in kilometers from the starting point to the new point.</span>
+</span><span id="L-433"><a href="#L-433"><span class="linenos">433</span></a><span class="sd">        - bearing (float): The bearing in degrees from the starting point to the new point,</span>
+</span><span id="L-434"><a href="#L-434"><span class="linenos">434</span></a><span class="sd">            measured clockwise from true north.</span>
 </span><span id="L-435"><a href="#L-435"><span class="linenos">435</span></a>
 </span><span id="L-436"><a href="#L-436"><span class="linenos">436</span></a><span class="sd">        Returns:</span>
 </span><span id="L-437"><a href="#L-437"><span class="linenos">437</span></a><span class="sd">        -----------</span>
-</span><span id="L-438"><a href="#L-438"><span class="linenos">438</span></a><span class="sd">            - Tuple[float, float]: A tuple containing the latitude and longitude of the new point,</span>
-</span><span id="L-439"><a href="#L-439"><span class="linenos">439</span></a><span class="sd">            respectively, in decimal degrees.</span>
+</span><span id="L-438"><a href="#L-438"><span class="linenos">438</span></a><span class="sd">        - Tuple[float, float]: A tuple containing the latitude and longitude of the new point,</span>
+</span><span id="L-439"><a href="#L-439"><span class="linenos">439</span></a><span class="sd">        respectively, in decimal degrees.</span>
 </span><span id="L-440"><a href="#L-440"><span class="linenos">440</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-441"><a href="#L-441"><span class="linenos">441</span></a>        <span class="n">distance</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">*</span> <span class="mi">1000</span>
 </span><span id="L-442"><a href="#L-442"><span class="linenos">442</span></a>        <span class="c1"># Convert degrees to radians</span>
@@ -639,7 +639,7 @@ filter-stations    </h1>
 </span><span id="L-503"><a href="#L-503"><span class="linenos">503</span></a><span class="sd">        </span>
 </span><span id="L-504"><a href="#L-504"><span class="linenos">504</span></a><span class="sd">        Returns:</span>
 </span><span id="L-505"><a href="#L-505"><span class="linenos">505</span></a><span class="sd">        -----------</span>
-</span><span id="L-506"><a href="#L-506"><span class="linenos">506</span></a><span class="sd">        pandas.DataFrame: The filtered weather station data within the bounding box.</span>
+</span><span id="L-506"><a href="#L-506"><span class="linenos">506</span></a><span class="sd">        - pandas.DataFrame: The filtered weather station data within the bounding box.</span>
 </span><span id="L-507"><a href="#L-507"><span class="linenos">507</span></a><span class="sd">        &quot;&quot;&quot;</span>     
 </span><span id="L-508"><a href="#L-508"><span class="linenos">508</span></a>        <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">centre_point</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
 </span><span id="L-509"><a href="#L-509"><span class="linenos">509</span></a>        <span class="n">min_lat</span><span class="p">,</span> <span class="n">min_lon</span><span class="p">,</span> <span class="n">max_lat</span><span class="p">,</span> <span class="n">max_lon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_filter</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span> <span class="n">distance</span><span class="p">)</span>
@@ -676,12 +676,12 @@ filter-stations    </h1>
 </span><span id="L-540"><a href="#L-540"><span class="linenos">540</span></a><span class="sd">        </span>
 </span><span id="L-541"><a href="#L-541"><span class="linenos">541</span></a><span class="sd">        Parameters:</span>
 </span><span id="L-542"><a href="#L-542"><span class="linenos">542</span></a><span class="sd">        -----------</span>
-</span><span id="L-543"><a href="#L-543"><span class="linenos">543</span></a><span class="sd">            - address (str): Address to filter stations by.</span>
-</span><span id="L-544"><a href="#L-544"><span class="linenos">544</span></a><span class="sd">            - distance (float, optional): Maximum distance (in kilometers) between the stations and the address. Default is 100 km.</span>
+</span><span id="L-543"><a href="#L-543"><span class="linenos">543</span></a><span class="sd">        - address (str): Address to filter stations by.</span>
+</span><span id="L-544"><a href="#L-544"><span class="linenos">544</span></a><span class="sd">        - distance (float, optional): Maximum distance (in kilometers) between the stations and the address. Default is 100 km.</span>
 </span><span id="L-545"><a href="#L-545"><span class="linenos">545</span></a><span class="sd">        </span>
 </span><span id="L-546"><a href="#L-546"><span class="linenos">546</span></a><span class="sd">        Returns:</span>
 </span><span id="L-547"><a href="#L-547"><span class="linenos">547</span></a><span class="sd">        -----------</span>
-</span><span id="L-548"><a href="#L-548"><span class="linenos">548</span></a><span class="sd">            - List of station codes that fall within the specified distance from the given address.</span>
+</span><span id="L-548"><a href="#L-548"><span class="linenos">548</span></a><span class="sd">        - List of station codes that fall within the specified distance from the given address.</span>
 </span><span id="L-549"><a href="#L-549"><span class="linenos">549</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-550"><a href="#L-550"><span class="linenos">550</span></a>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_stations</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;clogFlag&#39;</span><span class="p">]))</span>
 </span><span id="L-551"><a href="#L-551"><span class="linenos">551</span></a>
@@ -699,11 +699,11 @@ filter-stations    </h1>
 </span><span id="L-563"><a href="#L-563"><span class="linenos">563</span></a>
 </span><span id="L-564"><a href="#L-564"><span class="linenos">564</span></a><span class="sd">        Parameters:</span>
 </span><span id="L-565"><a href="#L-565"><span class="linenos">565</span></a><span class="sd">        -----------</span>
-</span><span id="L-566"><a href="#L-566"><span class="linenos">566</span></a><span class="sd">            - map_center: a tuple with the latitude and longitude of the center of the map</span>
+</span><span id="L-566"><a href="#L-566"><span class="linenos">566</span></a><span class="sd">        - map_center: a tuple with the latitude and longitude of the center of the map</span>
 </span><span id="L-567"><a href="#L-567"><span class="linenos">567</span></a>
 </span><span id="L-568"><a href="#L-568"><span class="linenos">568</span></a><span class="sd">        Returns:</span>
 </span><span id="L-569"><a href="#L-569"><span class="linenos">569</span></a><span class="sd">        -----------</span>
-</span><span id="L-570"><a href="#L-570"><span class="linenos">570</span></a><span class="sd">            - A Folium map object</span>
+</span><span id="L-570"><a href="#L-570"><span class="linenos">570</span></a><span class="sd">        - A Folium map object</span>
 </span><span id="L-571"><a href="#L-571"><span class="linenos">571</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-572"><a href="#L-572"><span class="linenos">572</span></a>
 </span><span id="L-573"><a href="#L-573"><span class="linenos">573</span></a>        <span class="c1">#  retrieve the stations data</span>
@@ -908,7 +908,7 @@ filter-stations    </h1>
 </span><span id="L-772"><a href="#L-772"><span class="linenos">772</span></a>
 </span><span id="L-773"><a href="#L-773"><span class="linenos">773</span></a><span class="sd">        Returns:</span>
 </span><span id="L-774"><a href="#L-774"><span class="linenos">774</span></a><span class="sd">        --------</span>
-</span><span id="L-775"><a href="#L-775"><span class="linenos">775</span></a><span class="sd">        my_map : folium.folium.Map</span>
+</span><span id="L-775"><a href="#L-775"><span class="linenos">775</span></a><span class="sd">        - my_map : folium.folium.Map</span>
 </span><span id="L-776"><a href="#L-776"><span class="linenos">776</span></a><span class="sd">            A Folium map object showing the locations of the weather stations in the given subsets.</span>
 </span><span id="L-777"><a href="#L-777"><span class="linenos">777</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-778"><a href="#L-778"><span class="linenos">778</span></a>        <span class="c1"># Read the csv file </span>
@@ -1023,13 +1023,13 @@ filter-stations    </h1>
 </span><span id="retreive_data-71"><a href="#retreive_data-71"><span class="linenos"> 71</span></a>
 </span><span id="retreive_data-72"><a href="#retreive_data-72"><span class="linenos"> 72</span></a><span class="sd">        Parameters:</span>
 </span><span id="retreive_data-73"><a href="#retreive_data-73"><span class="linenos"> 73</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data-74"><a href="#retreive_data-74"><span class="linenos"> 74</span></a><span class="sd">            - station (str, optional): Code for a single station to retrieve information for. Defaults to None.</span>
-</span><span id="retreive_data-75"><a href="#retreive_data-75"><span class="linenos"> 75</span></a><span class="sd">            - multipleStations (list, optional): List of station codes to retrieve information for multiple stations. Defaults to [].</span>
-</span><span id="retreive_data-76"><a href="#retreive_data-76"><span class="linenos"> 76</span></a><span class="sd">            - countrycode (str, optional): Country code to retrieve information for all stations located in the country. Defaults to None.</span>
+</span><span id="retreive_data-74"><a href="#retreive_data-74"><span class="linenos"> 74</span></a><span class="sd">        - station (str, optional): Code for a single station to retrieve information for. Defaults to None.</span>
+</span><span id="retreive_data-75"><a href="#retreive_data-75"><span class="linenos"> 75</span></a><span class="sd">        - multipleStations (list, optional): List of station codes to retrieve information for multiple stations. Defaults to [].</span>
+</span><span id="retreive_data-76"><a href="#retreive_data-76"><span class="linenos"> 76</span></a><span class="sd">        - countrycode (str, optional): Country code to retrieve information for all stations located in the country. Defaults to None.</span>
 </span><span id="retreive_data-77"><a href="#retreive_data-77"><span class="linenos"> 77</span></a>
 </span><span id="retreive_data-78"><a href="#retreive_data-78"><span class="linenos"> 78</span></a><span class="sd">        Returns:</span>
 </span><span id="retreive_data-79"><a href="#retreive_data-79"><span class="linenos"> 79</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data-80"><a href="#retreive_data-80"><span class="linenos"> 80</span></a><span class="sd">            pandas.DataFrame: DataFrame containing information about the requested weather stations.</span>
+</span><span id="retreive_data-80"><a href="#retreive_data-80"><span class="linenos"> 80</span></a><span class="sd">        - pandas.DataFrame: DataFrame containing information about the requested weather stations.</span>
 </span><span id="retreive_data-81"><a href="#retreive_data-81"><span class="linenos"> 81</span></a>
 </span><span id="retreive_data-82"><a href="#retreive_data-82"><span class="linenos"> 82</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="retreive_data-83"><a href="#retreive_data-83"><span class="linenos"> 83</span></a>        <span class="c1"># Make API request and convert response to DataFrame</span>
@@ -1054,7 +1054,7 @@ filter-stations    </h1>
 </span><span id="retreive_data-102"><a href="#retreive_data-102"><span class="linenos">102</span></a>
 </span><span id="retreive_data-103"><a href="#retreive_data-103"><span class="linenos">103</span></a><span class="sd">        Returns:</span>
 </span><span id="retreive_data-104"><a href="#retreive_data-104"><span class="linenos">104</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data-105"><a href="#retreive_data-105"><span class="linenos">105</span></a><span class="sd">            dict: Dictionary containing information about available weather variables, keyed by variable shortcode.</span>
+</span><span id="retreive_data-105"><a href="#retreive_data-105"><span class="linenos">105</span></a><span class="sd">        - dict: Dictionary containing information about available weather variables, keyed by variable shortcode.</span>
 </span><span id="retreive_data-106"><a href="#retreive_data-106"><span class="linenos">106</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="retreive_data-107"><a href="#retreive_data-107"><span class="linenos">107</span></a>        <span class="c1"># Make API request and create dictionary of variables</span>
 </span><span id="retreive_data-108"><a href="#retreive_data-108"><span class="linenos">108</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__request</span><span class="p">(</span><span class="n">endpoints</span><span class="p">[</span><span class="s1">&#39;VARIABLES&#39;</span><span class="p">],</span> <span class="p">{})</span>
@@ -1094,12 +1094,12 @@ filter-stations    </h1>
 </span><span id="retreive_data-142"><a href="#retreive_data-142"><span class="linenos">142</span></a>
 </span><span id="retreive_data-143"><a href="#retreive_data-143"><span class="linenos">143</span></a><span class="sd">        Parameters:</span>
 </span><span id="retreive_data-144"><a href="#retreive_data-144"><span class="linenos">144</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data-145"><a href="#retreive_data-145"><span class="linenos">145</span></a><span class="sd">            - station (str): Code for the station to find neighbouring stations for.</span>
-</span><span id="retreive_data-146"><a href="#retreive_data-146"><span class="linenos">146</span></a><span class="sd">            - number (int, optional): Number of neighbouring stations to return. Defaults to 5.</span>
+</span><span id="retreive_data-145"><a href="#retreive_data-145"><span class="linenos">145</span></a><span class="sd">        - station (str): Code for the station to find neighbouring stations for.</span>
+</span><span id="retreive_data-146"><a href="#retreive_data-146"><span class="linenos">146</span></a><span class="sd">        - number (int, optional): Number of neighbouring stations to return. Defaults to 5.</span>
 </span><span id="retreive_data-147"><a href="#retreive_data-147"><span class="linenos">147</span></a>
 </span><span id="retreive_data-148"><a href="#retreive_data-148"><span class="linenos">148</span></a><span class="sd">        Returns:</span>
 </span><span id="retreive_data-149"><a href="#retreive_data-149"><span class="linenos">149</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data-150"><a href="#retreive_data-150"><span class="linenos">150</span></a><span class="sd">            dict: Dictionary containing the station codes and distances of the nearest neighbouring stations.</span>
+</span><span id="retreive_data-150"><a href="#retreive_data-150"><span class="linenos">150</span></a><span class="sd">        - dict: Dictionary containing the station codes and distances of the nearest neighbouring stations.</span>
 </span><span id="retreive_data-151"><a href="#retreive_data-151"><span class="linenos">151</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="retreive_data-152"><a href="#retreive_data-152"><span class="linenos">152</span></a>        <span class="c1"># Get latitude and longitude of specified station</span>
 </span><span id="retreive_data-153"><a href="#retreive_data-153"><span class="linenos">153</span></a>        <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_stations_info</span><span class="p">(</span><span class="n">station</span><span class="p">)[[</span><span class="s1">&#39;location.longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;location.latitude&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1119,12 +1119,12 @@ filter-stations    </h1>
 </span><span id="retreive_data-167"><a href="#retreive_data-167"><span class="linenos">167</span></a>
 </span><span id="retreive_data-168"><a href="#retreive_data-168"><span class="linenos">168</span></a><span class="sd">        Parameters:</span>
 </span><span id="retreive_data-169"><a href="#retreive_data-169"><span class="linenos">169</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data-170"><a href="#retreive_data-170"><span class="linenos">170</span></a><span class="sd">            - columns (list of str, optional): List of column names to include in the returned DataFrame. </span>
+</span><span id="retreive_data-170"><a href="#retreive_data-170"><span class="linenos">170</span></a><span class="sd">        - columns (list of str, optional): List of column names to include in the returned DataFrame. </span>
 </span><span id="retreive_data-171"><a href="#retreive_data-171"><span class="linenos">171</span></a><span class="sd">                If None, all columns are included. Defaults to None.</span>
 </span><span id="retreive_data-172"><a href="#retreive_data-172"><span class="linenos">172</span></a>
 </span><span id="retreive_data-173"><a href="#retreive_data-173"><span class="linenos">173</span></a><span class="sd">        Returns:</span>
 </span><span id="retreive_data-174"><a href="#retreive_data-174"><span class="linenos">174</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data-175"><a href="#retreive_data-175"><span class="linenos">175</span></a><span class="sd">            pandas.DataFrame: DataFrame containing trained models with the specified columns.</span>
+</span><span id="retreive_data-175"><a href="#retreive_data-175"><span class="linenos">175</span></a><span class="sd">        - pandas.DataFrame: DataFrame containing trained models with the specified columns.</span>
 </span><span id="retreive_data-176"><a href="#retreive_data-176"><span class="linenos">176</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="retreive_data-177"><a href="#retreive_data-177"><span class="linenos">177</span></a>        <span class="n">reqUrl</span> <span class="o">=</span> <span class="s2">&quot;https://tahmorqctest.eu-de.mybluemix.net/api/models&quot;</span> <span class="c1"># endpoint</span>
 </span><span id="retreive_data-178"><a href="#retreive_data-178"><span class="linenos">178</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__request</span><span class="p">(</span><span class="n">reqUrl</span><span class="p">,</span> <span class="p">{})</span>
@@ -1140,11 +1140,11 @@ filter-stations    </h1>
 </span><span id="retreive_data-188"><a href="#retreive_data-188"><span class="linenos">188</span></a>
 </span><span id="retreive_data-189"><a href="#retreive_data-189"><span class="linenos">189</span></a><span class="sd">        Parameters:</span>
 </span><span id="retreive_data-190"><a href="#retreive_data-190"><span class="linenos">190</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data-191"><a href="#retreive_data-191"><span class="linenos">191</span></a><span class="sd">            - dataframe (pandas.DataFrame): DataFrame containing weather variable data.</span>
+</span><span id="retreive_data-191"><a href="#retreive_data-191"><span class="linenos">191</span></a><span class="sd">        - dataframe (pandas.DataFrame): DataFrame containing weather variable data.</span>
 </span><span id="retreive_data-192"><a href="#retreive_data-192"><span class="linenos">192</span></a>
 </span><span id="retreive_data-193"><a href="#retreive_data-193"><span class="linenos">193</span></a><span class="sd">        Returns:</span>
 </span><span id="retreive_data-194"><a href="#retreive_data-194"><span class="linenos">194</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data-195"><a href="#retreive_data-195"><span class="linenos">195</span></a><span class="sd">            pandas.DataFrame: DataFrame containing aggregated weather variable data, summed by day.</span>
+</span><span id="retreive_data-195"><a href="#retreive_data-195"><span class="linenos">195</span></a><span class="sd">        - pandas.DataFrame: DataFrame containing aggregated weather variable data, summed by day.</span>
 </span><span id="retreive_data-196"><a href="#retreive_data-196"><span class="linenos">196</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="retreive_data-197"><a href="#retreive_data-197"><span class="linenos">197</span></a>        <span class="c1"># Reset index and rename columns</span>
 </span><span id="retreive_data-198"><a href="#retreive_data-198"><span class="linenos">198</span></a>        <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -1176,7 +1176,7 @@ filter-stations    </h1>
 </span><span id="retreive_data-224"><a href="#retreive_data-224"><span class="linenos">224</span></a>
 </span><span id="retreive_data-225"><a href="#retreive_data-225"><span class="linenos">225</span></a><span class="sd">            Returns:</span>
 </span><span id="retreive_data-226"><a href="#retreive_data-226"><span class="linenos">226</span></a><span class="sd">            --------</span>
-</span><span id="retreive_data-227"><a href="#retreive_data-227"><span class="linenos">227</span></a><span class="sd">            pd.DataFrame</span>
+</span><span id="retreive_data-227"><a href="#retreive_data-227"><span class="linenos">227</span></a><span class="sd">            - pd.DataFrame</span>
 </span><span id="retreive_data-228"><a href="#retreive_data-228"><span class="linenos">228</span></a><span class="sd">                A DataFrame containing the measurements.</span>
 </span><span id="retreive_data-229"><a href="#retreive_data-229"><span class="linenos">229</span></a><span class="sd">            &quot;&quot;&quot;</span>            
 </span><span id="retreive_data-230"><a href="#retreive_data-230"><span class="linenos">230</span></a>            <span class="c1">#print(&#39;Get measurements&#39;, station, startDate, endDate, variables)</span>
@@ -1303,16 +1303,16 @@ filter-stations    </h1>
 </span><span id="retreive_data-351"><a href="#retreive_data-351"><span class="linenos">351</span></a>
 </span><span id="retreive_data-352"><a href="#retreive_data-352"><span class="linenos">352</span></a><span class="sd">        Parameters:</span>
 </span><span id="retreive_data-353"><a href="#retreive_data-353"><span class="linenos">353</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data-354"><a href="#retreive_data-354"><span class="linenos">354</span></a><span class="sd">            - stations_list (list): A list of strings containing the names of the stations to retrieve data from.</span>
-</span><span id="retreive_data-355"><a href="#retreive_data-355"><span class="linenos">355</span></a><span class="sd">            - csv_file (str): The name of the CSV file to save the data to.</span>
-</span><span id="retreive_data-356"><a href="#retreive_data-356"><span class="linenos">356</span></a><span class="sd">            - startDate (str): The start date for the measurements, in the format &#39;yyyy-mm-dd&#39;.</span>
-</span><span id="retreive_data-357"><a href="#retreive_data-357"><span class="linenos">357</span></a><span class="sd">            - endDate (str): The end date for the measurements, in the format &#39;yyyy-mm-dd&#39;.</span>
-</span><span id="retreive_data-358"><a href="#retreive_data-358"><span class="linenos">358</span></a><span class="sd">            - variables (list): A list of strings containing the names of the variables to retrieve.</span>
-</span><span id="retreive_data-359"><a href="#retreive_data-359"><span class="linenos">359</span></a><span class="sd">            - dataset (str): The name of the dataset to retrieve the data from. Default is &#39;controlled&#39;.</span>
+</span><span id="retreive_data-354"><a href="#retreive_data-354"><span class="linenos">354</span></a><span class="sd">        - stations_list (list): A list of strings containing the names of the stations to retrieve data from.</span>
+</span><span id="retreive_data-355"><a href="#retreive_data-355"><span class="linenos">355</span></a><span class="sd">        - csv_file (str): The name of the CSV file to save the data to.</span>
+</span><span id="retreive_data-356"><a href="#retreive_data-356"><span class="linenos">356</span></a><span class="sd">        - startDate (str): The start date for the measurements, in the format &#39;yyyy-mm-dd&#39;.</span>
+</span><span id="retreive_data-357"><a href="#retreive_data-357"><span class="linenos">357</span></a><span class="sd">        - endDate (str): The end date for the measurements, in the format &#39;yyyy-mm-dd&#39;.</span>
+</span><span id="retreive_data-358"><a href="#retreive_data-358"><span class="linenos">358</span></a><span class="sd">        - variables (list): A list of strings containing the names of the variables to retrieve.</span>
+</span><span id="retreive_data-359"><a href="#retreive_data-359"><span class="linenos">359</span></a><span class="sd">        - dataset (str): The name of the dataset to retrieve the data from. Default is &#39;controlled&#39;.</span>
 </span><span id="retreive_data-360"><a href="#retreive_data-360"><span class="linenos">360</span></a>
 </span><span id="retreive_data-361"><a href="#retreive_data-361"><span class="linenos">361</span></a><span class="sd">        Returns:</span>
 </span><span id="retreive_data-362"><a href="#retreive_data-362"><span class="linenos">362</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data-363"><a href="#retreive_data-363"><span class="linenos">363</span></a><span class="sd">            df (pandas.DataFrame): A DataFrame containing the aggregated data for all stations.</span>
+</span><span id="retreive_data-363"><a href="#retreive_data-363"><span class="linenos">363</span></a><span class="sd">        - df (pandas.DataFrame): A DataFrame containing the aggregated data for all stations.</span>
 </span><span id="retreive_data-364"><a href="#retreive_data-364"><span class="linenos">364</span></a>
 </span><span id="retreive_data-365"><a href="#retreive_data-365"><span class="linenos">365</span></a><span class="sd">        Raises:</span>
 </span><span id="retreive_data-366"><a href="#retreive_data-366"><span class="linenos">366</span></a>
@@ -1383,13 +1383,13 @@ filter-stations    </h1>
 </span><span id="retreive_data.get_stations_info-71"><a href="#retreive_data.get_stations_info-71"><span class="linenos">71</span></a>
 </span><span id="retreive_data.get_stations_info-72"><a href="#retreive_data.get_stations_info-72"><span class="linenos">72</span></a><span class="sd">        Parameters:</span>
 </span><span id="retreive_data.get_stations_info-73"><a href="#retreive_data.get_stations_info-73"><span class="linenos">73</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data.get_stations_info-74"><a href="#retreive_data.get_stations_info-74"><span class="linenos">74</span></a><span class="sd">            - station (str, optional): Code for a single station to retrieve information for. Defaults to None.</span>
-</span><span id="retreive_data.get_stations_info-75"><a href="#retreive_data.get_stations_info-75"><span class="linenos">75</span></a><span class="sd">            - multipleStations (list, optional): List of station codes to retrieve information for multiple stations. Defaults to [].</span>
-</span><span id="retreive_data.get_stations_info-76"><a href="#retreive_data.get_stations_info-76"><span class="linenos">76</span></a><span class="sd">            - countrycode (str, optional): Country code to retrieve information for all stations located in the country. Defaults to None.</span>
+</span><span id="retreive_data.get_stations_info-74"><a href="#retreive_data.get_stations_info-74"><span class="linenos">74</span></a><span class="sd">        - station (str, optional): Code for a single station to retrieve information for. Defaults to None.</span>
+</span><span id="retreive_data.get_stations_info-75"><a href="#retreive_data.get_stations_info-75"><span class="linenos">75</span></a><span class="sd">        - multipleStations (list, optional): List of station codes to retrieve information for multiple stations. Defaults to [].</span>
+</span><span id="retreive_data.get_stations_info-76"><a href="#retreive_data.get_stations_info-76"><span class="linenos">76</span></a><span class="sd">        - countrycode (str, optional): Country code to retrieve information for all stations located in the country. Defaults to None.</span>
 </span><span id="retreive_data.get_stations_info-77"><a href="#retreive_data.get_stations_info-77"><span class="linenos">77</span></a>
 </span><span id="retreive_data.get_stations_info-78"><a href="#retreive_data.get_stations_info-78"><span class="linenos">78</span></a><span class="sd">        Returns:</span>
 </span><span id="retreive_data.get_stations_info-79"><a href="#retreive_data.get_stations_info-79"><span class="linenos">79</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data.get_stations_info-80"><a href="#retreive_data.get_stations_info-80"><span class="linenos">80</span></a><span class="sd">            pandas.DataFrame: DataFrame containing information about the requested weather stations.</span>
+</span><span id="retreive_data.get_stations_info-80"><a href="#retreive_data.get_stations_info-80"><span class="linenos">80</span></a><span class="sd">        - pandas.DataFrame: DataFrame containing information about the requested weather stations.</span>
 </span><span id="retreive_data.get_stations_info-81"><a href="#retreive_data.get_stations_info-81"><span class="linenos">81</span></a>
 </span><span id="retreive_data.get_stations_info-82"><a href="#retreive_data.get_stations_info-82"><span class="linenos">82</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="retreive_data.get_stations_info-83"><a href="#retreive_data.get_stations_info-83"><span class="linenos">83</span></a>        <span class="c1"># Make API request and convert response to DataFrame</span>
@@ -1413,15 +1413,17 @@ filter-stations    </h1>
 
 <h2 id="parameters">Parameters:</h2>
 
-<pre><code>- station (str, optional): Code for a single station to retrieve information for. Defaults to None.
-- multipleStations (list, optional): List of station codes to retrieve information for multiple stations. Defaults to [].
-- countrycode (str, optional): Country code to retrieve information for all stations located in the country. Defaults to None.
-</code></pre>
+<ul>
+<li>station (str, optional): Code for a single station to retrieve information for. Defaults to None.</li>
+<li>multipleStations (list, optional): List of station codes to retrieve information for multiple stations. Defaults to [].</li>
+<li>countrycode (str, optional): Country code to retrieve information for all stations located in the country. Defaults to None.</li>
+</ul>
 
 <h2 id="returns">Returns:</h2>
 
-<pre><code>pandas.DataFrame: DataFrame containing information about the requested weather stations.
-</code></pre>
+<ul>
+<li>pandas.DataFrame: DataFrame containing information about the requested weather stations.</li>
+</ul>
 </div>
 
 
@@ -1443,7 +1445,7 @@ filter-stations    </h1>
 </span><span id="retreive_data.get_variables-102"><a href="#retreive_data.get_variables-102"><span class="linenos">102</span></a>
 </span><span id="retreive_data.get_variables-103"><a href="#retreive_data.get_variables-103"><span class="linenos">103</span></a><span class="sd">        Returns:</span>
 </span><span id="retreive_data.get_variables-104"><a href="#retreive_data.get_variables-104"><span class="linenos">104</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data.get_variables-105"><a href="#retreive_data.get_variables-105"><span class="linenos">105</span></a><span class="sd">            dict: Dictionary containing information about available weather variables, keyed by variable shortcode.</span>
+</span><span id="retreive_data.get_variables-105"><a href="#retreive_data.get_variables-105"><span class="linenos">105</span></a><span class="sd">        - dict: Dictionary containing information about available weather variables, keyed by variable shortcode.</span>
 </span><span id="retreive_data.get_variables-106"><a href="#retreive_data.get_variables-106"><span class="linenos">106</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="retreive_data.get_variables-107"><a href="#retreive_data.get_variables-107"><span class="linenos">107</span></a>        <span class="c1"># Make API request and create dictionary of variables</span>
 </span><span id="retreive_data.get_variables-108"><a href="#retreive_data.get_variables-108"><span class="linenos">108</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__request</span><span class="p">(</span><span class="n">endpoints</span><span class="p">[</span><span class="s1">&#39;VARIABLES&#39;</span><span class="p">],</span> <span class="p">{})</span>
@@ -1459,8 +1461,9 @@ filter-stations    </h1>
 
 <h2 id="returns">Returns:</h2>
 
-<pre><code>dict: Dictionary containing information about available weather variables, keyed by variable shortcode.
-</code></pre>
+<ul>
+<li>dict: Dictionary containing information about available weather variables, keyed by variable shortcode.</li>
+</ul>
 </div>
 
 
@@ -1501,12 +1504,12 @@ filter-stations    </h1>
 </span><span id="retreive_data.k_neighbours-142"><a href="#retreive_data.k_neighbours-142"><span class="linenos">142</span></a>
 </span><span id="retreive_data.k_neighbours-143"><a href="#retreive_data.k_neighbours-143"><span class="linenos">143</span></a><span class="sd">        Parameters:</span>
 </span><span id="retreive_data.k_neighbours-144"><a href="#retreive_data.k_neighbours-144"><span class="linenos">144</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data.k_neighbours-145"><a href="#retreive_data.k_neighbours-145"><span class="linenos">145</span></a><span class="sd">            - station (str): Code for the station to find neighbouring stations for.</span>
-</span><span id="retreive_data.k_neighbours-146"><a href="#retreive_data.k_neighbours-146"><span class="linenos">146</span></a><span class="sd">            - number (int, optional): Number of neighbouring stations to return. Defaults to 5.</span>
+</span><span id="retreive_data.k_neighbours-145"><a href="#retreive_data.k_neighbours-145"><span class="linenos">145</span></a><span class="sd">        - station (str): Code for the station to find neighbouring stations for.</span>
+</span><span id="retreive_data.k_neighbours-146"><a href="#retreive_data.k_neighbours-146"><span class="linenos">146</span></a><span class="sd">        - number (int, optional): Number of neighbouring stations to return. Defaults to 5.</span>
 </span><span id="retreive_data.k_neighbours-147"><a href="#retreive_data.k_neighbours-147"><span class="linenos">147</span></a>
 </span><span id="retreive_data.k_neighbours-148"><a href="#retreive_data.k_neighbours-148"><span class="linenos">148</span></a><span class="sd">        Returns:</span>
 </span><span id="retreive_data.k_neighbours-149"><a href="#retreive_data.k_neighbours-149"><span class="linenos">149</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data.k_neighbours-150"><a href="#retreive_data.k_neighbours-150"><span class="linenos">150</span></a><span class="sd">            dict: Dictionary containing the station codes and distances of the nearest neighbouring stations.</span>
+</span><span id="retreive_data.k_neighbours-150"><a href="#retreive_data.k_neighbours-150"><span class="linenos">150</span></a><span class="sd">        - dict: Dictionary containing the station codes and distances of the nearest neighbouring stations.</span>
 </span><span id="retreive_data.k_neighbours-151"><a href="#retreive_data.k_neighbours-151"><span class="linenos">151</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="retreive_data.k_neighbours-152"><a href="#retreive_data.k_neighbours-152"><span class="linenos">152</span></a>        <span class="c1"># Get latitude and longitude of specified station</span>
 </span><span id="retreive_data.k_neighbours-153"><a href="#retreive_data.k_neighbours-153"><span class="linenos">153</span></a>        <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_stations_info</span><span class="p">(</span><span class="n">station</span><span class="p">)[[</span><span class="s1">&#39;location.longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;location.latitude&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1525,14 +1528,16 @@ filter-stations    </h1>
 
 <h2 id="parameters">Parameters:</h2>
 
-<pre><code>- station (str): Code for the station to find neighbouring stations for.
-- number (int, optional): Number of neighbouring stations to return. Defaults to 5.
-</code></pre>
+<ul>
+<li>station (str): Code for the station to find neighbouring stations for.</li>
+<li>number (int, optional): Number of neighbouring stations to return. Defaults to 5.</li>
+</ul>
 
 <h2 id="returns">Returns:</h2>
 
-<pre><code>dict: Dictionary containing the station codes and distances of the nearest neighbouring stations.
-</code></pre>
+<ul>
+<li>dict: Dictionary containing the station codes and distances of the nearest neighbouring stations.</li>
+</ul>
 </div>
 
 
@@ -1554,12 +1559,12 @@ filter-stations    </h1>
 </span><span id="retreive_data.trained_models-167"><a href="#retreive_data.trained_models-167"><span class="linenos">167</span></a>
 </span><span id="retreive_data.trained_models-168"><a href="#retreive_data.trained_models-168"><span class="linenos">168</span></a><span class="sd">        Parameters:</span>
 </span><span id="retreive_data.trained_models-169"><a href="#retreive_data.trained_models-169"><span class="linenos">169</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data.trained_models-170"><a href="#retreive_data.trained_models-170"><span class="linenos">170</span></a><span class="sd">            - columns (list of str, optional): List of column names to include in the returned DataFrame. </span>
+</span><span id="retreive_data.trained_models-170"><a href="#retreive_data.trained_models-170"><span class="linenos">170</span></a><span class="sd">        - columns (list of str, optional): List of column names to include in the returned DataFrame. </span>
 </span><span id="retreive_data.trained_models-171"><a href="#retreive_data.trained_models-171"><span class="linenos">171</span></a><span class="sd">                If None, all columns are included. Defaults to None.</span>
 </span><span id="retreive_data.trained_models-172"><a href="#retreive_data.trained_models-172"><span class="linenos">172</span></a>
 </span><span id="retreive_data.trained_models-173"><a href="#retreive_data.trained_models-173"><span class="linenos">173</span></a><span class="sd">        Returns:</span>
 </span><span id="retreive_data.trained_models-174"><a href="#retreive_data.trained_models-174"><span class="linenos">174</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data.trained_models-175"><a href="#retreive_data.trained_models-175"><span class="linenos">175</span></a><span class="sd">            pandas.DataFrame: DataFrame containing trained models with the specified columns.</span>
+</span><span id="retreive_data.trained_models-175"><a href="#retreive_data.trained_models-175"><span class="linenos">175</span></a><span class="sd">        - pandas.DataFrame: DataFrame containing trained models with the specified columns.</span>
 </span><span id="retreive_data.trained_models-176"><a href="#retreive_data.trained_models-176"><span class="linenos">176</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="retreive_data.trained_models-177"><a href="#retreive_data.trained_models-177"><span class="linenos">177</span></a>        <span class="n">reqUrl</span> <span class="o">=</span> <span class="s2">&quot;https://tahmorqctest.eu-de.mybluemix.net/api/models&quot;</span> <span class="c1"># endpoint</span>
 </span><span id="retreive_data.trained_models-178"><a href="#retreive_data.trained_models-178"><span class="linenos">178</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__request</span><span class="p">(</span><span class="n">reqUrl</span><span class="p">,</span> <span class="p">{})</span>
@@ -1574,14 +1579,16 @@ filter-stations    </h1>
 
 <h2 id="parameters">Parameters:</h2>
 
-<pre><code>- columns (list of str, optional): List of column names to include in the returned DataFrame. 
-    If None, all columns are included. Defaults to None.
-</code></pre>
+<ul>
+<li>columns (list of str, optional): List of column names to include in the returned DataFrame. 
+If None, all columns are included. Defaults to None.</li>
+</ul>
 
 <h2 id="returns">Returns:</h2>
 
-<pre><code>pandas.DataFrame: DataFrame containing trained models with the specified columns.
-</code></pre>
+<ul>
+<li>pandas.DataFrame: DataFrame containing trained models with the specified columns.</li>
+</ul>
 </div>
 
 
@@ -1603,11 +1610,11 @@ filter-stations    </h1>
 </span><span id="retreive_data.aggregate_variables-188"><a href="#retreive_data.aggregate_variables-188"><span class="linenos">188</span></a>
 </span><span id="retreive_data.aggregate_variables-189"><a href="#retreive_data.aggregate_variables-189"><span class="linenos">189</span></a><span class="sd">        Parameters:</span>
 </span><span id="retreive_data.aggregate_variables-190"><a href="#retreive_data.aggregate_variables-190"><span class="linenos">190</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data.aggregate_variables-191"><a href="#retreive_data.aggregate_variables-191"><span class="linenos">191</span></a><span class="sd">            - dataframe (pandas.DataFrame): DataFrame containing weather variable data.</span>
+</span><span id="retreive_data.aggregate_variables-191"><a href="#retreive_data.aggregate_variables-191"><span class="linenos">191</span></a><span class="sd">        - dataframe (pandas.DataFrame): DataFrame containing weather variable data.</span>
 </span><span id="retreive_data.aggregate_variables-192"><a href="#retreive_data.aggregate_variables-192"><span class="linenos">192</span></a>
 </span><span id="retreive_data.aggregate_variables-193"><a href="#retreive_data.aggregate_variables-193"><span class="linenos">193</span></a><span class="sd">        Returns:</span>
 </span><span id="retreive_data.aggregate_variables-194"><a href="#retreive_data.aggregate_variables-194"><span class="linenos">194</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data.aggregate_variables-195"><a href="#retreive_data.aggregate_variables-195"><span class="linenos">195</span></a><span class="sd">            pandas.DataFrame: DataFrame containing aggregated weather variable data, summed by day.</span>
+</span><span id="retreive_data.aggregate_variables-195"><a href="#retreive_data.aggregate_variables-195"><span class="linenos">195</span></a><span class="sd">        - pandas.DataFrame: DataFrame containing aggregated weather variable data, summed by day.</span>
 </span><span id="retreive_data.aggregate_variables-196"><a href="#retreive_data.aggregate_variables-196"><span class="linenos">196</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="retreive_data.aggregate_variables-197"><a href="#retreive_data.aggregate_variables-197"><span class="linenos">197</span></a>        <span class="c1"># Reset index and rename columns</span>
 </span><span id="retreive_data.aggregate_variables-198"><a href="#retreive_data.aggregate_variables-198"><span class="linenos">198</span></a>        <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -1622,13 +1629,15 @@ filter-stations    </h1>
 
 <h2 id="parameters">Parameters:</h2>
 
-<pre><code>- dataframe (pandas.DataFrame): DataFrame containing weather variable data.
-</code></pre>
+<ul>
+<li>dataframe (pandas.DataFrame): DataFrame containing weather variable data.</li>
+</ul>
 
 <h2 id="returns">Returns:</h2>
 
-<pre><code>pandas.DataFrame: DataFrame containing aggregated weather variable data, summed by day.
-</code></pre>
+<ul>
+<li>pandas.DataFrame: DataFrame containing aggregated weather variable data, summed by day.</li>
+</ul>
 </div>
 
 
@@ -1665,7 +1674,7 @@ filter-stations    </h1>
 </span><span id="retreive_data.get_measurements-224"><a href="#retreive_data.get_measurements-224"><span class="linenos">224</span></a>
 </span><span id="retreive_data.get_measurements-225"><a href="#retreive_data.get_measurements-225"><span class="linenos">225</span></a><span class="sd">            Returns:</span>
 </span><span id="retreive_data.get_measurements-226"><a href="#retreive_data.get_measurements-226"><span class="linenos">226</span></a><span class="sd">            --------</span>
-</span><span id="retreive_data.get_measurements-227"><a href="#retreive_data.get_measurements-227"><span class="linenos">227</span></a><span class="sd">            pd.DataFrame</span>
+</span><span id="retreive_data.get_measurements-227"><a href="#retreive_data.get_measurements-227"><span class="linenos">227</span></a><span class="sd">            - pd.DataFrame</span>
 </span><span id="retreive_data.get_measurements-228"><a href="#retreive_data.get_measurements-228"><span class="linenos">228</span></a><span class="sd">                A DataFrame containing the measurements.</span>
 </span><span id="retreive_data.get_measurements-229"><a href="#retreive_data.get_measurements-229"><span class="linenos">229</span></a><span class="sd">            &quot;&quot;&quot;</span>            
 </span><span id="retreive_data.get_measurements-230"><a href="#retreive_data.get_measurements-230"><span class="linenos">230</span></a>            <span class="c1">#print(&#39;Get measurements&#39;, station, startDate, endDate, variables)</span>
@@ -1808,8 +1817,10 @@ Whether to aggregate the measurements by variable. Default is False.</li>
 
 <h2 id="returns">Returns:</h2>
 
-<p>pd.DataFrame
-    A DataFrame containing the measurements.</p>
+<ul>
+<li>pd.DataFrame
+A DataFrame containing the measurements.</li>
+</ul>
 </div>
 
 
@@ -1831,16 +1842,16 @@ Whether to aggregate the measurements by variable. Default is False.</li>
 </span><span id="retreive_data.multiple_measurements-351"><a href="#retreive_data.multiple_measurements-351"><span class="linenos">351</span></a>
 </span><span id="retreive_data.multiple_measurements-352"><a href="#retreive_data.multiple_measurements-352"><span class="linenos">352</span></a><span class="sd">        Parameters:</span>
 </span><span id="retreive_data.multiple_measurements-353"><a href="#retreive_data.multiple_measurements-353"><span class="linenos">353</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data.multiple_measurements-354"><a href="#retreive_data.multiple_measurements-354"><span class="linenos">354</span></a><span class="sd">            - stations_list (list): A list of strings containing the names of the stations to retrieve data from.</span>
-</span><span id="retreive_data.multiple_measurements-355"><a href="#retreive_data.multiple_measurements-355"><span class="linenos">355</span></a><span class="sd">            - csv_file (str): The name of the CSV file to save the data to.</span>
-</span><span id="retreive_data.multiple_measurements-356"><a href="#retreive_data.multiple_measurements-356"><span class="linenos">356</span></a><span class="sd">            - startDate (str): The start date for the measurements, in the format &#39;yyyy-mm-dd&#39;.</span>
-</span><span id="retreive_data.multiple_measurements-357"><a href="#retreive_data.multiple_measurements-357"><span class="linenos">357</span></a><span class="sd">            - endDate (str): The end date for the measurements, in the format &#39;yyyy-mm-dd&#39;.</span>
-</span><span id="retreive_data.multiple_measurements-358"><a href="#retreive_data.multiple_measurements-358"><span class="linenos">358</span></a><span class="sd">            - variables (list): A list of strings containing the names of the variables to retrieve.</span>
-</span><span id="retreive_data.multiple_measurements-359"><a href="#retreive_data.multiple_measurements-359"><span class="linenos">359</span></a><span class="sd">            - dataset (str): The name of the dataset to retrieve the data from. Default is &#39;controlled&#39;.</span>
+</span><span id="retreive_data.multiple_measurements-354"><a href="#retreive_data.multiple_measurements-354"><span class="linenos">354</span></a><span class="sd">        - stations_list (list): A list of strings containing the names of the stations to retrieve data from.</span>
+</span><span id="retreive_data.multiple_measurements-355"><a href="#retreive_data.multiple_measurements-355"><span class="linenos">355</span></a><span class="sd">        - csv_file (str): The name of the CSV file to save the data to.</span>
+</span><span id="retreive_data.multiple_measurements-356"><a href="#retreive_data.multiple_measurements-356"><span class="linenos">356</span></a><span class="sd">        - startDate (str): The start date for the measurements, in the format &#39;yyyy-mm-dd&#39;.</span>
+</span><span id="retreive_data.multiple_measurements-357"><a href="#retreive_data.multiple_measurements-357"><span class="linenos">357</span></a><span class="sd">        - endDate (str): The end date for the measurements, in the format &#39;yyyy-mm-dd&#39;.</span>
+</span><span id="retreive_data.multiple_measurements-358"><a href="#retreive_data.multiple_measurements-358"><span class="linenos">358</span></a><span class="sd">        - variables (list): A list of strings containing the names of the variables to retrieve.</span>
+</span><span id="retreive_data.multiple_measurements-359"><a href="#retreive_data.multiple_measurements-359"><span class="linenos">359</span></a><span class="sd">        - dataset (str): The name of the dataset to retrieve the data from. Default is &#39;controlled&#39;.</span>
 </span><span id="retreive_data.multiple_measurements-360"><a href="#retreive_data.multiple_measurements-360"><span class="linenos">360</span></a>
 </span><span id="retreive_data.multiple_measurements-361"><a href="#retreive_data.multiple_measurements-361"><span class="linenos">361</span></a><span class="sd">        Returns:</span>
 </span><span id="retreive_data.multiple_measurements-362"><a href="#retreive_data.multiple_measurements-362"><span class="linenos">362</span></a><span class="sd">        -----------</span>
-</span><span id="retreive_data.multiple_measurements-363"><a href="#retreive_data.multiple_measurements-363"><span class="linenos">363</span></a><span class="sd">            df (pandas.DataFrame): A DataFrame containing the aggregated data for all stations.</span>
+</span><span id="retreive_data.multiple_measurements-363"><a href="#retreive_data.multiple_measurements-363"><span class="linenos">363</span></a><span class="sd">        - df (pandas.DataFrame): A DataFrame containing the aggregated data for all stations.</span>
 </span><span id="retreive_data.multiple_measurements-364"><a href="#retreive_data.multiple_measurements-364"><span class="linenos">364</span></a>
 </span><span id="retreive_data.multiple_measurements-365"><a href="#retreive_data.multiple_measurements-365"><span class="linenos">365</span></a><span class="sd">        Raises:</span>
 </span><span id="retreive_data.multiple_measurements-366"><a href="#retreive_data.multiple_measurements-366"><span class="linenos">366</span></a>
@@ -1877,18 +1888,20 @@ Whether to aggregate the measurements by variable. Default is False.</li>
 
 <h2 id="parameters">Parameters:</h2>
 
-<pre><code>- stations_list (list): A list of strings containing the names of the stations to retrieve data from.
-- csv_file (str): The name of the CSV file to save the data to.
-- startDate (str): The start date for the measurements, in the format 'yyyy-mm-dd'.
-- endDate (str): The end date for the measurements, in the format 'yyyy-mm-dd'.
-- variables (list): A list of strings containing the names of the variables to retrieve.
-- dataset (str): The name of the dataset to retrieve the data from. Default is 'controlled'.
-</code></pre>
+<ul>
+<li>stations_list (list): A list of strings containing the names of the stations to retrieve data from.</li>
+<li>csv_file (str): The name of the CSV file to save the data to.</li>
+<li>startDate (str): The start date for the measurements, in the format 'yyyy-mm-dd'.</li>
+<li>endDate (str): The end date for the measurements, in the format 'yyyy-mm-dd'.</li>
+<li>variables (list): A list of strings containing the names of the variables to retrieve.</li>
+<li>dataset (str): The name of the dataset to retrieve the data from. Default is 'controlled'.</li>
+</ul>
 
 <h2 id="returns">Returns:</h2>
 
-<pre><code>df (pandas.DataFrame): A DataFrame containing the aggregated data for all stations.
-</code></pre>
+<ul>
+<li>df (pandas.DataFrame): A DataFrame containing the aggregated data for all stations.</li>
+</ul>
 
 <p>Raises:</p>
 
@@ -1944,16 +1957,16 @@ Whether to aggregate the measurements by variable. Default is False.</li>
 </span><span id="Filter-428"><a href="#Filter-428"><span class="linenos">428</span></a>
 </span><span id="Filter-429"><a href="#Filter-429"><span class="linenos">429</span></a><span class="sd">        Parameters:</span>
 </span><span id="Filter-430"><a href="#Filter-430"><span class="linenos">430</span></a><span class="sd">        -----------</span>
-</span><span id="Filter-431"><a href="#Filter-431"><span class="linenos">431</span></a><span class="sd">            - lat (float): The latitude of the starting point in decimal degrees.</span>
-</span><span id="Filter-432"><a href="#Filter-432"><span class="linenos">432</span></a><span class="sd">            - lon (float): The longitude of the starting point in decimal degrees.</span>
-</span><span id="Filter-433"><a href="#Filter-433"><span class="linenos">433</span></a><span class="sd">            - distance (float): The distance in kilometers from the starting point to the new point.</span>
-</span><span id="Filter-434"><a href="#Filter-434"><span class="linenos">434</span></a><span class="sd">            - bearing (float): The bearing in degrees from the starting point to the new point,</span>
-</span><span id="Filter-435"><a href="#Filter-435"><span class="linenos">435</span></a><span class="sd">                measured clockwise from true north.</span>
+</span><span id="Filter-431"><a href="#Filter-431"><span class="linenos">431</span></a><span class="sd">        - lat (float): The latitude of the starting point in decimal degrees.</span>
+</span><span id="Filter-432"><a href="#Filter-432"><span class="linenos">432</span></a><span class="sd">        - lon (float): The longitude of the starting point in decimal degrees.</span>
+</span><span id="Filter-433"><a href="#Filter-433"><span class="linenos">433</span></a><span class="sd">        - distance (float): The distance in kilometers from the starting point to the new point.</span>
+</span><span id="Filter-434"><a href="#Filter-434"><span class="linenos">434</span></a><span class="sd">        - bearing (float): The bearing in degrees from the starting point to the new point,</span>
+</span><span id="Filter-435"><a href="#Filter-435"><span class="linenos">435</span></a><span class="sd">            measured clockwise from true north.</span>
 </span><span id="Filter-436"><a href="#Filter-436"><span class="linenos">436</span></a>
 </span><span id="Filter-437"><a href="#Filter-437"><span class="linenos">437</span></a><span class="sd">        Returns:</span>
 </span><span id="Filter-438"><a href="#Filter-438"><span class="linenos">438</span></a><span class="sd">        -----------</span>
-</span><span id="Filter-439"><a href="#Filter-439"><span class="linenos">439</span></a><span class="sd">            - Tuple[float, float]: A tuple containing the latitude and longitude of the new point,</span>
-</span><span id="Filter-440"><a href="#Filter-440"><span class="linenos">440</span></a><span class="sd">            respectively, in decimal degrees.</span>
+</span><span id="Filter-439"><a href="#Filter-439"><span class="linenos">439</span></a><span class="sd">        - Tuple[float, float]: A tuple containing the latitude and longitude of the new point,</span>
+</span><span id="Filter-440"><a href="#Filter-440"><span class="linenos">440</span></a><span class="sd">        respectively, in decimal degrees.</span>
 </span><span id="Filter-441"><a href="#Filter-441"><span class="linenos">441</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="Filter-442"><a href="#Filter-442"><span class="linenos">442</span></a>        <span class="n">distance</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">*</span> <span class="mi">1000</span>
 </span><span id="Filter-443"><a href="#Filter-443"><span class="linenos">443</span></a>        <span class="c1"># Convert degrees to radians</span>
@@ -2020,7 +2033,7 @@ Whether to aggregate the measurements by variable. Default is False.</li>
 </span><span id="Filter-504"><a href="#Filter-504"><span class="linenos">504</span></a><span class="sd">        </span>
 </span><span id="Filter-505"><a href="#Filter-505"><span class="linenos">505</span></a><span class="sd">        Returns:</span>
 </span><span id="Filter-506"><a href="#Filter-506"><span class="linenos">506</span></a><span class="sd">        -----------</span>
-</span><span id="Filter-507"><a href="#Filter-507"><span class="linenos">507</span></a><span class="sd">        pandas.DataFrame: The filtered weather station data within the bounding box.</span>
+</span><span id="Filter-507"><a href="#Filter-507"><span class="linenos">507</span></a><span class="sd">        - pandas.DataFrame: The filtered weather station data within the bounding box.</span>
 </span><span id="Filter-508"><a href="#Filter-508"><span class="linenos">508</span></a><span class="sd">        &quot;&quot;&quot;</span>     
 </span><span id="Filter-509"><a href="#Filter-509"><span class="linenos">509</span></a>        <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">centre_point</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
 </span><span id="Filter-510"><a href="#Filter-510"><span class="linenos">510</span></a>        <span class="n">min_lat</span><span class="p">,</span> <span class="n">min_lon</span><span class="p">,</span> <span class="n">max_lat</span><span class="p">,</span> <span class="n">max_lon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_filter</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span> <span class="n">distance</span><span class="p">)</span>
@@ -2057,12 +2070,12 @@ Whether to aggregate the measurements by variable. Default is False.</li>
 </span><span id="Filter-541"><a href="#Filter-541"><span class="linenos">541</span></a><span class="sd">        </span>
 </span><span id="Filter-542"><a href="#Filter-542"><span class="linenos">542</span></a><span class="sd">        Parameters:</span>
 </span><span id="Filter-543"><a href="#Filter-543"><span class="linenos">543</span></a><span class="sd">        -----------</span>
-</span><span id="Filter-544"><a href="#Filter-544"><span class="linenos">544</span></a><span class="sd">            - address (str): Address to filter stations by.</span>
-</span><span id="Filter-545"><a href="#Filter-545"><span class="linenos">545</span></a><span class="sd">            - distance (float, optional): Maximum distance (in kilometers) between the stations and the address. Default is 100 km.</span>
+</span><span id="Filter-544"><a href="#Filter-544"><span class="linenos">544</span></a><span class="sd">        - address (str): Address to filter stations by.</span>
+</span><span id="Filter-545"><a href="#Filter-545"><span class="linenos">545</span></a><span class="sd">        - distance (float, optional): Maximum distance (in kilometers) between the stations and the address. Default is 100 km.</span>
 </span><span id="Filter-546"><a href="#Filter-546"><span class="linenos">546</span></a><span class="sd">        </span>
 </span><span id="Filter-547"><a href="#Filter-547"><span class="linenos">547</span></a><span class="sd">        Returns:</span>
 </span><span id="Filter-548"><a href="#Filter-548"><span class="linenos">548</span></a><span class="sd">        -----------</span>
-</span><span id="Filter-549"><a href="#Filter-549"><span class="linenos">549</span></a><span class="sd">            - List of station codes that fall within the specified distance from the given address.</span>
+</span><span id="Filter-549"><a href="#Filter-549"><span class="linenos">549</span></a><span class="sd">        - List of station codes that fall within the specified distance from the given address.</span>
 </span><span id="Filter-550"><a href="#Filter-550"><span class="linenos">550</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="Filter-551"><a href="#Filter-551"><span class="linenos">551</span></a>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_stations</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;clogFlag&#39;</span><span class="p">]))</span>
 </span></pre></div>
@@ -2108,15 +2121,17 @@ Whether to aggregate the measurements by variable. Default is False.</li>
 
 <h2 id="parameters">Parameters:</h2>
 
-<pre><code>- station (str, optional): Code for a single station to retrieve information for. Defaults to None.
-- multipleStations (list, optional): List of station codes to retrieve information for multiple stations. Defaults to [].
-- countrycode (str, optional): Country code to retrieve information for all stations located in the country. Defaults to None.
-</code></pre>
+<ul>
+<li>station (str, optional): Code for a single station to retrieve information for. Defaults to None.</li>
+<li>multipleStations (list, optional): List of station codes to retrieve information for multiple stations. Defaults to [].</li>
+<li>countrycode (str, optional): Country code to retrieve information for all stations located in the country. Defaults to None.</li>
+</ul>
 
 <h2 id="returns">Returns:</h2>
 
-<pre><code>pandas.DataFrame: DataFrame containing information about the requested weather stations.
-</code></pre>
+<ul>
+<li>pandas.DataFrame: DataFrame containing information about the requested weather stations.</li>
+</ul>
 </div>
 
 
@@ -2188,16 +2203,16 @@ The latitude and longitude coordinates of the location.</li>
 </span><span id="Filter.calculate_new_point-428"><a href="#Filter.calculate_new_point-428"><span class="linenos">428</span></a>
 </span><span id="Filter.calculate_new_point-429"><a href="#Filter.calculate_new_point-429"><span class="linenos">429</span></a><span class="sd">        Parameters:</span>
 </span><span id="Filter.calculate_new_point-430"><a href="#Filter.calculate_new_point-430"><span class="linenos">430</span></a><span class="sd">        -----------</span>
-</span><span id="Filter.calculate_new_point-431"><a href="#Filter.calculate_new_point-431"><span class="linenos">431</span></a><span class="sd">            - lat (float): The latitude of the starting point in decimal degrees.</span>
-</span><span id="Filter.calculate_new_point-432"><a href="#Filter.calculate_new_point-432"><span class="linenos">432</span></a><span class="sd">            - lon (float): The longitude of the starting point in decimal degrees.</span>
-</span><span id="Filter.calculate_new_point-433"><a href="#Filter.calculate_new_point-433"><span class="linenos">433</span></a><span class="sd">            - distance (float): The distance in kilometers from the starting point to the new point.</span>
-</span><span id="Filter.calculate_new_point-434"><a href="#Filter.calculate_new_point-434"><span class="linenos">434</span></a><span class="sd">            - bearing (float): The bearing in degrees from the starting point to the new point,</span>
-</span><span id="Filter.calculate_new_point-435"><a href="#Filter.calculate_new_point-435"><span class="linenos">435</span></a><span class="sd">                measured clockwise from true north.</span>
+</span><span id="Filter.calculate_new_point-431"><a href="#Filter.calculate_new_point-431"><span class="linenos">431</span></a><span class="sd">        - lat (float): The latitude of the starting point in decimal degrees.</span>
+</span><span id="Filter.calculate_new_point-432"><a href="#Filter.calculate_new_point-432"><span class="linenos">432</span></a><span class="sd">        - lon (float): The longitude of the starting point in decimal degrees.</span>
+</span><span id="Filter.calculate_new_point-433"><a href="#Filter.calculate_new_point-433"><span class="linenos">433</span></a><span class="sd">        - distance (float): The distance in kilometers from the starting point to the new point.</span>
+</span><span id="Filter.calculate_new_point-434"><a href="#Filter.calculate_new_point-434"><span class="linenos">434</span></a><span class="sd">        - bearing (float): The bearing in degrees from the starting point to the new point,</span>
+</span><span id="Filter.calculate_new_point-435"><a href="#Filter.calculate_new_point-435"><span class="linenos">435</span></a><span class="sd">            measured clockwise from true north.</span>
 </span><span id="Filter.calculate_new_point-436"><a href="#Filter.calculate_new_point-436"><span class="linenos">436</span></a>
 </span><span id="Filter.calculate_new_point-437"><a href="#Filter.calculate_new_point-437"><span class="linenos">437</span></a><span class="sd">        Returns:</span>
 </span><span id="Filter.calculate_new_point-438"><a href="#Filter.calculate_new_point-438"><span class="linenos">438</span></a><span class="sd">        -----------</span>
-</span><span id="Filter.calculate_new_point-439"><a href="#Filter.calculate_new_point-439"><span class="linenos">439</span></a><span class="sd">            - Tuple[float, float]: A tuple containing the latitude and longitude of the new point,</span>
-</span><span id="Filter.calculate_new_point-440"><a href="#Filter.calculate_new_point-440"><span class="linenos">440</span></a><span class="sd">            respectively, in decimal degrees.</span>
+</span><span id="Filter.calculate_new_point-439"><a href="#Filter.calculate_new_point-439"><span class="linenos">439</span></a><span class="sd">        - Tuple[float, float]: A tuple containing the latitude and longitude of the new point,</span>
+</span><span id="Filter.calculate_new_point-440"><a href="#Filter.calculate_new_point-440"><span class="linenos">440</span></a><span class="sd">        respectively, in decimal degrees.</span>
 </span><span id="Filter.calculate_new_point-441"><a href="#Filter.calculate_new_point-441"><span class="linenos">441</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="Filter.calculate_new_point-442"><a href="#Filter.calculate_new_point-442"><span class="linenos">442</span></a>        <span class="n">distance</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">*</span> <span class="mi">1000</span>
 </span><span id="Filter.calculate_new_point-443"><a href="#Filter.calculate_new_point-443"><span class="linenos">443</span></a>        <span class="c1"># Convert degrees to radians</span>
@@ -2229,18 +2244,20 @@ distance and bearing.</p>
 
 <h2 id="parameters">Parameters:</h2>
 
-<pre><code>- lat (float): The latitude of the starting point in decimal degrees.
-- lon (float): The longitude of the starting point in decimal degrees.
-- distance (float): The distance in kilometers from the starting point to the new point.
-- bearing (float): The bearing in degrees from the starting point to the new point,
-    measured clockwise from true north.
-</code></pre>
+<ul>
+<li>lat (float): The latitude of the starting point in decimal degrees.</li>
+<li>lon (float): The longitude of the starting point in decimal degrees.</li>
+<li>distance (float): The distance in kilometers from the starting point to the new point.</li>
+<li>bearing (float): The bearing in degrees from the starting point to the new point,
+measured clockwise from true north.</li>
+</ul>
 
 <h2 id="returns">Returns:</h2>
 
-<pre><code>- Tuple[float, float]: A tuple containing the latitude and longitude of the new point,
-respectively, in decimal degrees.
-</code></pre>
+<ul>
+<li>Tuple[float, float]: A tuple containing the latitude and longitude of the new point,
+respectively, in decimal degrees.</li>
+</ul>
 </div>
 
 
@@ -2325,7 +2342,7 @@ respectively, in decimal degrees.
 </span><span id="Filter.filter_stations-504"><a href="#Filter.filter_stations-504"><span class="linenos">504</span></a><span class="sd">        </span>
 </span><span id="Filter.filter_stations-505"><a href="#Filter.filter_stations-505"><span class="linenos">505</span></a><span class="sd">        Returns:</span>
 </span><span id="Filter.filter_stations-506"><a href="#Filter.filter_stations-506"><span class="linenos">506</span></a><span class="sd">        -----------</span>
-</span><span id="Filter.filter_stations-507"><a href="#Filter.filter_stations-507"><span class="linenos">507</span></a><span class="sd">        pandas.DataFrame: The filtered weather station data within the bounding box.</span>
+</span><span id="Filter.filter_stations-507"><a href="#Filter.filter_stations-507"><span class="linenos">507</span></a><span class="sd">        - pandas.DataFrame: The filtered weather station data within the bounding box.</span>
 </span><span id="Filter.filter_stations-508"><a href="#Filter.filter_stations-508"><span class="linenos">508</span></a><span class="sd">        &quot;&quot;&quot;</span>     
 </span><span id="Filter.filter_stations-509"><a href="#Filter.filter_stations-509"><span class="linenos">509</span></a>        <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">centre_point</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
 </span><span id="Filter.filter_stations-510"><a href="#Filter.filter_stations-510"><span class="linenos">510</span></a>        <span class="n">min_lat</span><span class="p">,</span> <span class="n">min_lon</span><span class="p">,</span> <span class="n">max_lat</span><span class="p">,</span> <span class="n">max_lon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_filter</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span> <span class="n">distance</span><span class="p">)</span>
@@ -2370,7 +2387,9 @@ respectively, in decimal degrees.
 
 <h2 id="returns">Returns:</h2>
 
-<p>pandas.DataFrame: The filtered weather station data within the bounding box.</p>
+<ul>
+<li>pandas.DataFrame: The filtered weather station data within the bounding box.</li>
+</ul>
 </div>
 
 
@@ -2392,12 +2411,12 @@ respectively, in decimal degrees.
 </span><span id="Filter.filter_stations_list-541"><a href="#Filter.filter_stations_list-541"><span class="linenos">541</span></a><span class="sd">        </span>
 </span><span id="Filter.filter_stations_list-542"><a href="#Filter.filter_stations_list-542"><span class="linenos">542</span></a><span class="sd">        Parameters:</span>
 </span><span id="Filter.filter_stations_list-543"><a href="#Filter.filter_stations_list-543"><span class="linenos">543</span></a><span class="sd">        -----------</span>
-</span><span id="Filter.filter_stations_list-544"><a href="#Filter.filter_stations_list-544"><span class="linenos">544</span></a><span class="sd">            - address (str): Address to filter stations by.</span>
-</span><span id="Filter.filter_stations_list-545"><a href="#Filter.filter_stations_list-545"><span class="linenos">545</span></a><span class="sd">            - distance (float, optional): Maximum distance (in kilometers) between the stations and the address. Default is 100 km.</span>
+</span><span id="Filter.filter_stations_list-544"><a href="#Filter.filter_stations_list-544"><span class="linenos">544</span></a><span class="sd">        - address (str): Address to filter stations by.</span>
+</span><span id="Filter.filter_stations_list-545"><a href="#Filter.filter_stations_list-545"><span class="linenos">545</span></a><span class="sd">        - distance (float, optional): Maximum distance (in kilometers) between the stations and the address. Default is 100 km.</span>
 </span><span id="Filter.filter_stations_list-546"><a href="#Filter.filter_stations_list-546"><span class="linenos">546</span></a><span class="sd">        </span>
 </span><span id="Filter.filter_stations_list-547"><a href="#Filter.filter_stations_list-547"><span class="linenos">547</span></a><span class="sd">        Returns:</span>
 </span><span id="Filter.filter_stations_list-548"><a href="#Filter.filter_stations_list-548"><span class="linenos">548</span></a><span class="sd">        -----------</span>
-</span><span id="Filter.filter_stations_list-549"><a href="#Filter.filter_stations_list-549"><span class="linenos">549</span></a><span class="sd">            - List of station codes that fall within the specified distance from the given address.</span>
+</span><span id="Filter.filter_stations_list-549"><a href="#Filter.filter_stations_list-549"><span class="linenos">549</span></a><span class="sd">        - List of station codes that fall within the specified distance from the given address.</span>
 </span><span id="Filter.filter_stations_list-550"><a href="#Filter.filter_stations_list-550"><span class="linenos">550</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="Filter.filter_stations_list-551"><a href="#Filter.filter_stations_list-551"><span class="linenos">551</span></a>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_stations</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;clogFlag&#39;</span><span class="p">]))</span>
 </span></pre></div>
@@ -2407,14 +2426,16 @@ respectively, in decimal degrees.
 
 <h2 id="parameters">Parameters:</h2>
 
-<pre><code>- address (str): Address to filter stations by.
-- distance (float, optional): Maximum distance (in kilometers) between the stations and the address. Default is 100 km.
-</code></pre>
+<ul>
+<li>address (str): Address to filter stations by.</li>
+<li>distance (float, optional): Maximum distance (in kilometers) between the stations and the address. Default is 100 km.</li>
+</ul>
 
 <h2 id="returns">Returns:</h2>
 
-<pre><code>- List of station codes that fall within the specified distance from the given address.
-</code></pre>
+<ul>
+<li>List of station codes that fall within the specified distance from the given address.</li>
+</ul>
 </div>
 
 
@@ -2457,11 +2478,11 @@ respectively, in decimal degrees.
 </span><span id="Interactive_maps-564"><a href="#Interactive_maps-564"><span class="linenos">564</span></a>
 </span><span id="Interactive_maps-565"><a href="#Interactive_maps-565"><span class="linenos">565</span></a><span class="sd">        Parameters:</span>
 </span><span id="Interactive_maps-566"><a href="#Interactive_maps-566"><span class="linenos">566</span></a><span class="sd">        -----------</span>
-</span><span id="Interactive_maps-567"><a href="#Interactive_maps-567"><span class="linenos">567</span></a><span class="sd">            - map_center: a tuple with the latitude and longitude of the center of the map</span>
+</span><span id="Interactive_maps-567"><a href="#Interactive_maps-567"><span class="linenos">567</span></a><span class="sd">        - map_center: a tuple with the latitude and longitude of the center of the map</span>
 </span><span id="Interactive_maps-568"><a href="#Interactive_maps-568"><span class="linenos">568</span></a>
 </span><span id="Interactive_maps-569"><a href="#Interactive_maps-569"><span class="linenos">569</span></a><span class="sd">        Returns:</span>
 </span><span id="Interactive_maps-570"><a href="#Interactive_maps-570"><span class="linenos">570</span></a><span class="sd">        -----------</span>
-</span><span id="Interactive_maps-571"><a href="#Interactive_maps-571"><span class="linenos">571</span></a><span class="sd">            - A Folium map object</span>
+</span><span id="Interactive_maps-571"><a href="#Interactive_maps-571"><span class="linenos">571</span></a><span class="sd">        - A Folium map object</span>
 </span><span id="Interactive_maps-572"><a href="#Interactive_maps-572"><span class="linenos">572</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="Interactive_maps-573"><a href="#Interactive_maps-573"><span class="linenos">573</span></a>
 </span><span id="Interactive_maps-574"><a href="#Interactive_maps-574"><span class="linenos">574</span></a>        <span class="c1">#  retrieve the stations data</span>
@@ -2666,7 +2687,7 @@ respectively, in decimal degrees.
 </span><span id="Interactive_maps-773"><a href="#Interactive_maps-773"><span class="linenos">773</span></a>
 </span><span id="Interactive_maps-774"><a href="#Interactive_maps-774"><span class="linenos">774</span></a><span class="sd">        Returns:</span>
 </span><span id="Interactive_maps-775"><a href="#Interactive_maps-775"><span class="linenos">775</span></a><span class="sd">        --------</span>
-</span><span id="Interactive_maps-776"><a href="#Interactive_maps-776"><span class="linenos">776</span></a><span class="sd">        my_map : folium.folium.Map</span>
+</span><span id="Interactive_maps-776"><a href="#Interactive_maps-776"><span class="linenos">776</span></a><span class="sd">        - my_map : folium.folium.Map</span>
 </span><span id="Interactive_maps-777"><a href="#Interactive_maps-777"><span class="linenos">777</span></a><span class="sd">            A Folium map object showing the locations of the weather stations in the given subsets.</span>
 </span><span id="Interactive_maps-778"><a href="#Interactive_maps-778"><span class="linenos">778</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="Interactive_maps-779"><a href="#Interactive_maps-779"><span class="linenos">779</span></a>        <span class="c1"># Read the csv file </span>
@@ -2755,11 +2776,11 @@ respectively, in decimal degrees.
 </span><span id="Interactive_maps.draw_map-564"><a href="#Interactive_maps.draw_map-564"><span class="linenos">564</span></a>
 </span><span id="Interactive_maps.draw_map-565"><a href="#Interactive_maps.draw_map-565"><span class="linenos">565</span></a><span class="sd">        Parameters:</span>
 </span><span id="Interactive_maps.draw_map-566"><a href="#Interactive_maps.draw_map-566"><span class="linenos">566</span></a><span class="sd">        -----------</span>
-</span><span id="Interactive_maps.draw_map-567"><a href="#Interactive_maps.draw_map-567"><span class="linenos">567</span></a><span class="sd">            - map_center: a tuple with the latitude and longitude of the center of the map</span>
+</span><span id="Interactive_maps.draw_map-567"><a href="#Interactive_maps.draw_map-567"><span class="linenos">567</span></a><span class="sd">        - map_center: a tuple with the latitude and longitude of the center of the map</span>
 </span><span id="Interactive_maps.draw_map-568"><a href="#Interactive_maps.draw_map-568"><span class="linenos">568</span></a>
 </span><span id="Interactive_maps.draw_map-569"><a href="#Interactive_maps.draw_map-569"><span class="linenos">569</span></a><span class="sd">        Returns:</span>
 </span><span id="Interactive_maps.draw_map-570"><a href="#Interactive_maps.draw_map-570"><span class="linenos">570</span></a><span class="sd">        -----------</span>
-</span><span id="Interactive_maps.draw_map-571"><a href="#Interactive_maps.draw_map-571"><span class="linenos">571</span></a><span class="sd">            - A Folium map object</span>
+</span><span id="Interactive_maps.draw_map-571"><a href="#Interactive_maps.draw_map-571"><span class="linenos">571</span></a><span class="sd">        - A Folium map object</span>
 </span><span id="Interactive_maps.draw_map-572"><a href="#Interactive_maps.draw_map-572"><span class="linenos">572</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="Interactive_maps.draw_map-573"><a href="#Interactive_maps.draw_map-573"><span class="linenos">573</span></a>
 </span><span id="Interactive_maps.draw_map-574"><a href="#Interactive_maps.draw_map-574"><span class="linenos">574</span></a>        <span class="c1">#  retrieve the stations data</span>
@@ -2784,13 +2805,15 @@ respectively, in decimal degrees.
 
 <h2 id="parameters">Parameters:</h2>
 
-<pre><code>- map_center: a tuple with the latitude and longitude of the center of the map
-</code></pre>
+<ul>
+<li>map_center: a tuple with the latitude and longitude of the center of the map</li>
+</ul>
 
 <h2 id="returns">Returns:</h2>
 
-<pre><code>- A Folium map object
-</code></pre>
+<ul>
+<li>A Folium map object</li>
+</ul>
 </div>
 
 
@@ -3116,7 +3139,7 @@ respectively, in decimal degrees.
 </span><span id="Interactive_maps.get_map-773"><a href="#Interactive_maps.get_map-773"><span class="linenos">773</span></a>
 </span><span id="Interactive_maps.get_map-774"><a href="#Interactive_maps.get_map-774"><span class="linenos">774</span></a><span class="sd">        Returns:</span>
 </span><span id="Interactive_maps.get_map-775"><a href="#Interactive_maps.get_map-775"><span class="linenos">775</span></a><span class="sd">        --------</span>
-</span><span id="Interactive_maps.get_map-776"><a href="#Interactive_maps.get_map-776"><span class="linenos">776</span></a><span class="sd">        my_map : folium.folium.Map</span>
+</span><span id="Interactive_maps.get_map-776"><a href="#Interactive_maps.get_map-776"><span class="linenos">776</span></a><span class="sd">        - my_map : folium.folium.Map</span>
 </span><span id="Interactive_maps.get_map-777"><a href="#Interactive_maps.get_map-777"><span class="linenos">777</span></a><span class="sd">            A Folium map object showing the locations of the weather stations in the given subsets.</span>
 </span><span id="Interactive_maps.get_map-778"><a href="#Interactive_maps.get_map-778"><span class="linenos">778</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="Interactive_maps.get_map-779"><a href="#Interactive_maps.get_map-779"><span class="linenos">779</span></a>        <span class="c1"># Read the csv file </span>
@@ -3197,8 +3220,10 @@ The resolution of the PNG image if data_values is True, default is 300.</li>
 
 <h2 id="returns">Returns:</h2>
 
-<p>my_map : folium.folium.Map
-    A Folium map object showing the locations of the weather stations in the given subsets.</p>
+<ul>
+<li>my_map : folium.folium.Map
+A Folium map object showing the locations of the weather stations in the given subsets.</li>
+</ul>
 </div>
 
 
