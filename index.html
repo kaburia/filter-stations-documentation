@@ -68,6 +68,7 @@
                 <hr>
 
 
+
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -16031,12 +16032,12 @@ class="
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Launch TensorBoard and navigate to the Profile tab to view performance profile</span>
@@ -16046,54 +16047,6 @@ class="
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>Reusing TensorBoard on port 6006 (pid 35228), started 16:29:15 ago. (Use &#39;!kill 35228&#39; to kill it.)</pre>
-</div>
-
-</div>
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-
-      <iframe id="tensorboard-frame-ac5824064bdfa5c5" width="100%" height="800" frameborder="0">
-      </iframe>
-      <script>
-        (function() {
-          const frame = document.getElementById("tensorboard-frame-ac5824064bdfa5c5");
-          const url = new URL("http://localhost");
-          const port = 6006;
-          if (port) {
-            url.port = port;
-          }
-          frame.src = url;
-        })();
-      </script>
-    
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -16127,12 +16080,12 @@ class="
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Profiling the model to check the compatibility with the MCU</span>
@@ -16142,88 +16095,6 @@ class="
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Performance on device types:
-============================
-{
-    &#34;variant&#34;: &#34;int8&#34;,
-    &#34;lowEndMcu&#34;: {
-        &#34;description&#34;: &#34;Estimate for a Cortex-M0+ or similar, running at 40MHz&#34;,
-        &#34;timePerInferenceMs&#34;: 4985,
-        &#34;memory&#34;: {
-            &#34;tflite&#34;: {
-                &#34;ram&#34;: 101556,
-                &#34;rom&#34;: 258560
-            },
-            &#34;eon&#34;: {
-                &#34;ram&#34;: 82280,
-                &#34;rom&#34;: 211280
-            }
-        },
-        &#34;supported&#34;: true
-    },
-    &#34;highEndMcu&#34;: {
-        &#34;description&#34;: &#34;Estimate for a Cortex-M7 or other high-end MCU/DSP, running at 240MHz&#34;,
-        &#34;timePerInferenceMs&#34;: 102,
-        &#34;memory&#34;: {
-            &#34;tflite&#34;: {
-                &#34;ram&#34;: 101748,
-                &#34;rom&#34;: 275824
-            },
-            &#34;eon&#34;: {
-                &#34;ram&#34;: 100632,
-                &#34;rom&#34;: 225840
-            }
-        },
-        &#34;supported&#34;: true
-    },
-    &#34;highEndMcuPlusAccelerator&#34;: {
-        &#34;description&#34;: &#34;Estimate for an MCU plus neural network accelerator&#34;,
-        &#34;timePerInferenceMs&#34;: 17,
-        &#34;memory&#34;: {
-            &#34;tflite&#34;: {
-                &#34;ram&#34;: 101748,
-                &#34;rom&#34;: 275824
-            },
-            &#34;eon&#34;: {
-                &#34;ram&#34;: 100632,
-                &#34;rom&#34;: 225840
-            }
-        },
-        &#34;supported&#34;: true
-    },
-    &#34;mpu&#34;: {
-        &#34;description&#34;: &#34;Estimate for a Cortex-A72, x86 or other mid-range microprocessor running at 1.5GHz&#34;,
-        &#34;timePerInferenceMs&#34;: 2,
-        &#34;rom&#34;: 216296.0,
-        &#34;supported&#34;: true
-    },
-    &#34;gpuOrMpuAccelerator&#34;: {
-        &#34;description&#34;: &#34;Estimate for a GPU or high-end neural network accelerator&#34;,
-        &#34;timePerInferenceMs&#34;: 1,
-        &#34;rom&#34;: 216296.0,
-        &#34;supported&#34;: true
-    }
-}
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
