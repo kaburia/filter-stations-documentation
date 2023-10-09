@@ -440,35 +440,35 @@ If None, all columns are included. Defaults to None.</li>
 <p>To aggregate data hourly:</p>
 
 <div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">aggregated_data</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">aggregate_variables</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1H&#39;</span><span class="p">)</span>
+<pre><span></span><code><span class="n">hourly_data</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">aggregate_variables</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1H&#39;</span><span class="p">)</span>
 </code></pre>
 </div>
 
 <p>To aggregate data by 12 hours:</p>
 
 <div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">aggregated_data</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">aggregate_variables</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;12H&#39;</span><span class="p">)</span>
+<pre><span></span><code><span class="n">half_day_data</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">aggregate_variables</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;12H&#39;</span><span class="p">)</span>
 </code></pre>
 </div>
 
 <p>To aggregate data by day:</p>
 
 <div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">aggregated_data</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">aggregate_variables</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1D&#39;</span><span class="p">)</span>
+<pre><span></span><code><span class="n">daily_data</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">aggregate_variables</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1D&#39;</span><span class="p">)</span>
 </code></pre>
 </div>
 
 <p>To aggregate data by week:</p>
 
 <div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">aggregated_data</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">aggregate_variables</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1W&#39;</span><span class="p">)</span>
+<pre><span></span><code><span class="n">weekly_data</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">aggregate_variables</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1W&#39;</span><span class="p">)</span>
 </code></pre>
 </div>
 
 <p>To aggregate data by month:</p>
 
 <div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">aggregated_data</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">aggregate_variables</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1M&#39;</span><span class="p">)</span>
+<pre><span></span><code><span class="n">monthly_data</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">aggregate_variables</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1M&#39;</span><span class="p">)</span>
 </code></pre>
 </div>
 </div>
@@ -1441,6 +1441,12 @@ fs.stations_region('Nairobi', plot=True)
 <ul>
 <li>HTML: The animation as an HTML object.</li>
 </ul>
+
+<p>The animation as an MP4 file</p>
+
+<p><video width="320" height="240" controls>
+    <source src="animation.mp4" type="video/mp4">
+</video></p>
 </div>
 
 
@@ -1545,6 +1551,10 @@ The resolution of the PNG image if data_values is True, default is 300.</li>
 <li>my_map : folium.folium.Map
 A Folium map object showing the locations of the weather stations in the given subsets.</li>
 </ul>
+
+<div align="center">
+    <img src="interact.png" alt="Subset Map" width="80%">
+</div>
 </div>
 
 
@@ -1597,7 +1607,7 @@ A Folium map object showing the locations of the weather stations in the given s
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">transform_station_status</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">station_status</span>,</span><span class="param">	<span class="n">today</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>,</span><span class="param">	<span class="n">transformed_data</span><span class="o">=</span><span class="kc">True</span></span><span class="return-annotation">):</span></span>
+        <span class="name">transform_station_status</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">station_status</span>,</span><span class="param">	<span class="n">today</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>,</span><span class="param">	<span class="n">transformed_data</span><span class="o">=</span><span class="kc">True</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
