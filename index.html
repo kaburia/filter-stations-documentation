@@ -61,6 +61,9 @@
                                 <a class="function" href="#retreive_data.get_stations_info">get_stations_info</a>
                         </li>
                         <li>
+                                <a class="function" href="#retreive_data.get_coordinates">get_coordinates</a>
+                        </li>
+                        <li>
                                 <a class="function" href="#retreive_data.get_variables">get_variables</a>
                         </li>
                         <li>
@@ -142,13 +145,16 @@
                                 <a class="function" href="#Filter.filter_stations">filter_stations</a>
                         </li>
                         <li>
-                                <a class="function" href="#Filter.filter_pr">filter_pr</a>
-                        </li>
-                        <li>
                                 <a class="function" href="#Filter.filter_stations_list">filter_stations_list</a>
                         </li>
                         <li>
                                 <a class="function" href="#Filter.stations_region">stations_region</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Filter.remove_zero_columns">remove_zero_columns</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Filter.filter_pr">filter_pr</a>
                         </li>
                         <li>
                                 <a class="function" href="#Filter.clogs">clogs</a>
@@ -184,6 +190,18 @@
 
             </li>
             <li>
+                    <a class="class" href="#Water_level">Water_level</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#Water_level.coordinates">coordinates</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Water_level.water_level_data">water_level_data</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="class" href="#transform_data">transform_data</a>
                             <ul class="memberlist">
                         <li>
@@ -201,7 +219,7 @@
     </ul>
 
 
-            <footer>Austin Kaburia</footer>
+            <footer>Austin Kaburia kaburiaaustin1@gmail.com</footer>
 
         <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev" target="_blank">
             built with <span class="visually-hidden">pdoc</span><img
@@ -233,6 +251,7 @@ filter-stations    </h1>
 <li>The <code><a href="#Filter">Filter</a></code> class is used to filter weather stations data based on things like distance and region.<br></li>
 <li>The <code><a href="#pipeline">pipeline</a></code> class is used to create a pipeline of filters to apply to weather stations based on how they correlate with water level data.<br></li>
 <li>The <code><a href="#Interactive_maps">Interactive_maps</a></code> class is used to plot weather stations on an interactive map.<br></li>
+<li>The <code><a href="#Water_level">Water_level</a></code> class is used to retrieve water level data and coordinates of gauging stations.<br></li>
 </ul>
 
 <div class="pdoc-code codehilite">
@@ -329,6 +348,51 @@ filter-stations    </h1>
 <pre><span></span><code><span class="n">station_info</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">get_stations_info</span><span class="p">(</span><span class="n">countrycode</span><span class="o">=</span><span class="s1">&#39;KE&#39;</span><span class="p">)</span>
 </code></pre>
 </div>
+</div>
+
+
+                            </div>
+                            <div id="retreive_data.get_coordinates" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_coordinates</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">station_sensor</span>, </span><span class="param"><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#retreive_data.get_coordinates"></a>
+    
+            <div class="docstring"><p>Retrieve longitudes,latitudes for a list of station_sensor names and duplicated for stations with multiple sensors.</p>
+
+<h2 id="parameters">Parameters:</h2>
+
+<ul>
+<li>station_sensor (list): List of station_sensor names.</li>
+<li>normalize (bool): If True, normalize the coordinates using MinMaxScaler to the range (0,1).</li>
+</ul>
+
+<h2 id="returns">Returns:</h2>
+
+<ul>
+<li>pd.DataFrame: DataFrame containing longitude and latitude coordinates for each station_sensor.</li>
+</ul>
+
+<h2 id="usage">Usage:</h2>
+
+<p>To retrieve coordinates 
+```python
+start_date = '2023-01-01'
+end_date = '2023-12-31'
+country= 'KE'</p>
+
+<h1 id="get-the-precipitation-data-for-the-stations">get the precipitation data for the stations</h1>
+
+<p>ke_pr = filt.filter_pr(start_date=start_date, end_date=end_date, 
+                        country='Kenya').set_index('Date')</p>
+
+<h1 id="get-the-coordinates">get the coordinates</h1>
+
+<p>xs = ret.get_coordinates(ke_pr.columns, normalize=True)</p>
 </div>
 
 
@@ -1064,6 +1128,7 @@ positive correlations and lagged changes below the specified threshold.</li>
                                 <dl>
                                     <div><dt><a href="#retreive_data">retreive_data</a></dt>
                                 <dd id="pipeline.get_stations_info" class="function"><a href="#retreive_data.get_stations_info">get_stations_info</a></dd>
+                <dd id="pipeline.get_coordinates" class="function"><a href="#retreive_data.get_coordinates">get_coordinates</a></dd>
                 <dd id="pipeline.get_variables" class="function"><a href="#retreive_data.get_variables">get_variables</a></dd>
                 <dd id="pipeline.k_neighbours" class="function"><a href="#retreive_data.k_neighbours">k_neighbours</a></dd>
                 <dd id="pipeline.station_status" class="function"><a href="#retreive_data.station_status">station_status</a></dd>
@@ -1280,107 +1345,6 @@ respectively, in decimal degrees.</li>
 
 
                             </div>
-                            <div id="Filter.filter_pr" class="classattr">
-                                <div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">filter_pr</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">start_date</span>,</span><span class="param">	<span class="n">end_date</span>,</span><span class="param">	<span class="n">country</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">region</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">radius</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">multiple_stations</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">station</span><span class="o">=</span><span class="kc">None</span></span><span class="return-annotation">):</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#Filter.filter_pr"></a>
-    
-            <div class="docstring"><p>Retrieves precipitation data from BigQuery based on specified parameters.</p>
-
-<h2 id="parameters">Parameters:</h2>
-
-<ul>
-<li>start_date (str): Start date for data query.</li>
-<li>end_date (str): End date for data query.</li>
-<li>country (str): Country name for filtering stations.</li>
-<li>region (str): Region name for filtering stations.</li>
-<li>radius (str): Radius for stations within a specified region.</li>
-<li>multiple_stations (str): Comma-separated list of station IDs.</li>
-<li>station (str): Single station ID for data filtering.</li>
-</ul>
-
-<h2 id="returns">Returns:</h2>
-
-<ul>
-<li>A Pandas DataFrame containing the filtered precipitation data.</li>
-</ul>
-
-<h2 id="usage">Usage:</h2>
-
-<p>To get precipitation data for a specific date range:</p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">fs</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">maps_key</span><span class="p">)</span>  <span class="c1"># Create an instance of your class</span>
-<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
-<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-31&#39;</span>
-<span class="n">pr_data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">filter_pr</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
-</code></pre>
-</div>
-
-<p>To get precipitation data for a specific date range and country:</p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">fs</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">maps_key</span><span class="p">)</span>  <span class="c1"># Create an instance of your class</span>
-<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
-<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-31&#39;</span>
-<span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;Kenya&#39;</span>
-<span class="n">pr_data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">filter_pr</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="n">country</span><span class="p">)</span>
-</code></pre>
-</div>
-
-<p>To get precipitation data for a specific date range and region:</p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">fs</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">maps_key</span><span class="p">)</span>  <span class="c1"># Create an instance of your class</span>
-<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
-<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-31&#39;</span>
-<span class="n">region</span> <span class="o">=</span> <span class="s1">&#39;Nairobi&#39;</span>
-<span class="n">pr_data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">filter_pr</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">)</span>
-</code></pre>
-</div>
-
-<p>To get precipitation data for a specific date range and region with a radius:</p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">fs</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">maps_key</span><span class="p">)</span>  <span class="c1"># Create an instance of your class</span>
-<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
-<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-31&#39;</span>
-<span class="n">region</span> <span class="o">=</span> <span class="s1">&#39;Nairobi&#39;</span>
-<span class="n">radius</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># distance in kilometres</span>
-<span class="n">pr_data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">filter_pr</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">)</span>
-</code></pre>
-</div>
-
-<p>To get precipitation data for a specific date range and multiple stations:</p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">fs</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">maps_key</span><span class="p">)</span>  <span class="c1"># Create an instance of your class</span>
-<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
-<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-31&#39;</span>
-<span class="n">multiple_stations</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TA00001&#39;</span><span class="p">,</span> <span class="s1">&#39;TA00002&#39;</span><span class="p">,</span> <span class="s1">&#39;TA00003&#39;</span><span class="p">]</span>
-<span class="n">pr_data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">filter_pr</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">multiple_stations</span><span class="o">=</span><span class="n">multiple_stations</span><span class="p">)</span>
-</code></pre>
-</div>
-
-<p>To get precipitation data for a specific date range and a single station:</p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">fs</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">maps_key</span><span class="p">)</span>  <span class="c1"># Create an instance of your class</span>
-<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
-<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-31&#39;</span>
-<span class="n">station</span> <span class="o">=</span> <span class="s1">&#39;TA00001&#39;</span>
-<span class="n">pr_data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">filter_pr</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">station</span><span class="o">=</span><span class="n">station</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
-
-                            </div>
                             <div id="Filter.filter_stations_list" class="classattr">
                                 <div class="attr function">
             
@@ -1455,6 +1419,134 @@ fs.stations_region('Nairobi', plot=True)
 
 
                             </div>
+                            <div id="Filter.remove_zero_columns" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">remove_zero_columns</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">df</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Filter.remove_zero_columns"></a>
+    
+            <div class="docstring"><p>Removes columns with all zeros from a DataFrame.</p>
+
+<h2 id="parameters">Parameters:</h2>
+
+<ul>
+<li>df (DataFrame): The DataFrame to remove columns from.</li>
+</ul>
+
+<h2 id="returns">Returns:</h2>
+
+<ul>
+<li>DataFrame: The DataFrame with columns containing all zeros removed.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Filter.filter_pr" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">filter_pr</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">start_date</span>,</span><span class="param">	<span class="n">end_date</span>,</span><span class="param">	<span class="n">country</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">region</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">radius</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">multiple_stations</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">station</span><span class="o">=</span><span class="kc">None</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Filter.filter_pr"></a>
+    
+            <div class="docstring"><p>Retrieves precipitation data from BigQuery based on specified parameters.</p>
+
+<h2 id="parameters">Parameters:</h2>
+
+<ul>
+<li>start_date (str): Start date for data query.</li>
+<li>end_date (str): End date for data query.</li>
+<li>country (str): Country name for filtering stations.</li>
+<li>region (str): Region name for filtering stations.</li>
+<li>radius (str): Radius for stations within a specified region.</li>
+<li>multiple_stations (str): Comma-separated list of station IDs.</li>
+<li>station (str): Single station ID for data filtering.</li>
+</ul>
+
+<h2 id="returns">Returns:</h2>
+
+<ul>
+<li>pd.DataFrame: A Pandas DataFrame containing the filtered precipitation data.</li>
+</ul>
+
+<h2 id="usage">Usage:</h2>
+
+<p>To get precipitation data for a specific date range:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">fs</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">maps_key</span><span class="p">)</span>  <span class="c1"># Create an instance of your class</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-31&#39;</span>
+<span class="n">pr_data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">filter_pr</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>To get precipitation data for a specific date range and country:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">fs</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">maps_key</span><span class="p">)</span>  <span class="c1"># Create an instance of your class</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-31&#39;</span>
+<span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;Kenya&#39;</span>
+<span class="n">pr_data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">filter_pr</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="n">country</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>To get precipitation data for a specific date range and region:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">fs</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">maps_key</span><span class="p">)</span>  <span class="c1"># Create an instance of your class</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-31&#39;</span>
+<span class="n">region</span> <span class="o">=</span> <span class="s1">&#39;Nairobi&#39;</span>
+<span class="n">pr_data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">filter_pr</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>To get precipitation data for a specific date range and region with a radius:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">fs</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">maps_key</span><span class="p">)</span>  <span class="c1"># Create an instance of your class</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-31&#39;</span>
+<span class="n">region</span> <span class="o">=</span> <span class="s1">&#39;Nairobi&#39;</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">pr_data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">filter_pr</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>To get precipitation data for a specific date range and multiple stations:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">fs</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">maps_key</span><span class="p">)</span>  <span class="c1"># Create an instance of your class</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-31&#39;</span>
+<span class="n">multiple_stations</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TA00001&#39;</span><span class="p">,</span> <span class="s1">&#39;TA00002&#39;</span><span class="p">,</span> <span class="s1">&#39;TA00003&#39;</span><span class="p">]</span>
+<span class="n">pr_data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">filter_pr</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">multiple_stations</span><span class="o">=</span><span class="n">multiple_stations</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>To get precipitation data for a specific date range and a single station:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">fs</span> <span class="o">=</span> <span class="n">Filter</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">maps_key</span><span class="p">)</span>  <span class="c1"># Create an instance of your class</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2021-01-31&#39;</span>
+<span class="n">station</span> <span class="o">=</span> <span class="s1">&#39;TA00001&#39;</span>
+<span class="n">pr_data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">filter_pr</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">station</span><span class="o">=</span><span class="n">station</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
                             <div id="Filter.clogs" class="classattr">
                                 <div class="attr function">
             
@@ -1499,7 +1591,8 @@ fs.stations_region('Nairobi', plot=True)
 
             </div>
             <div><dt><a href="#retreive_data">retreive_data</a></dt>
-                                <dd id="Filter.get_variables" class="function"><a href="#retreive_data.get_variables">get_variables</a></dd>
+                                <dd id="Filter.get_coordinates" class="function"><a href="#retreive_data.get_coordinates">get_coordinates</a></dd>
+                <dd id="Filter.get_variables" class="function"><a href="#retreive_data.get_variables">get_variables</a></dd>
                 <dd id="Filter.k_neighbours" class="function"><a href="#retreive_data.k_neighbours">k_neighbours</a></dd>
                 <dd id="Filter.station_status" class="function"><a href="#retreive_data.station_status">station_status</a></dd>
                 <dd id="Filter.trained_models" class="function"><a href="#retreive_data.trained_models">trained_models</a></dd>
@@ -1748,6 +1841,7 @@ A Folium map object showing the locations of the weather stations in the given s
                                 <dl>
                                     <div><dt><a href="#retreive_data">retreive_data</a></dt>
                                 <dd id="Interactive_maps.get_stations_info" class="function"><a href="#retreive_data.get_stations_info">get_stations_info</a></dd>
+                <dd id="Interactive_maps.get_coordinates" class="function"><a href="#retreive_data.get_coordinates">get_coordinates</a></dd>
                 <dd id="Interactive_maps.get_variables" class="function"><a href="#retreive_data.get_variables">get_variables</a></dd>
                 <dd id="Interactive_maps.k_neighbours" class="function"><a href="#retreive_data.k_neighbours">k_neighbours</a></dd>
                 <dd id="Interactive_maps.station_status" class="function"><a href="#retreive_data.station_status">station_status</a></dd>
@@ -1762,6 +1856,111 @@ A Folium map object showing the locations of the weather stations in the given s
 
             </div>
                                 </dl>
+                            </div>
+                </section>
+                <section id="Water_level">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">Water_level</span>:
+
+        
+    </div>
+    <a class="headerlink" href="#Water_level"></a>
+    
+    
+
+                            <div id="Water_level.coordinates" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">coordinates</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">region</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Water_level.coordinates"></a>
+    
+            <div class="docstring"><p>Get the latitude and longitude coordinates for a specified region.</p>
+
+<h2 id="parameters">Parameters:</h2>
+
+<ul>
+<li>region (str): The region for which coordinates are requested. 
+Valid values are 'muringato' or 'ewaso'.</li>
+</ul>
+
+<h2 id="returns">Returns:</h2>
+
+<ul>
+<li>tuple: A tuple containing the latitude and longitude coordinates.</li>
+</ul>
+
+<p>Raises:</p>
+
+<ul>
+<li>ValueError: If the region provided is not 'muringato' or 'ewaso'.</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">wl</span> <span class="o">=</span> <span class="n">Water_level</span><span class="p">()</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">wl</span><span class="o">.</span><span class="n">coordinates</span><span class="p">(</span><span class="s1">&#39;muringato&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>  <span class="c1"># Output: (-0.406689, 36.96301)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="Water_level.water_level_data" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">water_level_data</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">region</span>, </span><span class="param"><span class="n">start_date</span><span class="o">=</span><span class="kc">None</span>, </span><span class="param"><span class="n">end_date</span><span class="o">=</span><span class="kc">None</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Water_level.water_level_data"></a>
+    
+            <div class="docstring"><p>Retrieve water level data for a specified region and optional date range.</p>
+
+<h2 id="parameters">Parameters:</h2>
+
+<ul>
+<li>region (str): The region for which water level data is requested. 
+Valid values are 'muringato' or 'ewaso'.</li>
+<li>start_date (str, optional): Start date for filtering the data. Format: 'YYYY-MM-DD'.</li>
+<li>end_date (str, optional): End date for filtering the data. Format: 'YYYY-MM-DD'.</li>
+</ul>
+
+<h2 id="returns">Returns:</h2>
+
+<ul>
+<li>pd.DataFrame: A Pandas DataFrame containing water level data with a DateTime index.</li>
+</ul>
+
+<h2 id="raises">Raises:</h2>
+
+<ul>
+<li>ValueError: If the region provided is not 'muringato' or 'ewaso'.</li>
+<li>ValueError: If the request to the API is not successful.</li>
+</ul>
+
+<p>Usage:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="kn">from</span> <span class="nn">filter_stations</span> <span class="kn">import</span> <span class="n">water_level</span>
+<span class="n">wl</span> <span class="o">=</span> <span class="n">Water_level</span><span class="p">()</span>
+<span class="c1"># get water level data for the muringato gauging station</span>
+<span class="n">muringato_data</span> <span class="o">=</span> <span class="n">wl</span><span class="o">.</span><span class="n">water_level_data</span><span class="p">(</span><span class="s1">&#39;muringato&#39;</span><span class="p">)</span>
+<span class="c1"># get water level data for the ewaso gauging station</span>
+<span class="n">ewaso_data</span> <span class="o">=</span> <span class="n">wl</span><span class="o">.</span><span class="n">water_level_data</span><span class="p">(</span><span class="s1">&#39;ewaso&#39;</span><span class="p">)</span> 
+</code></pre>
+</div>
+</div>
+
+
                             </div>
                 </section>
                 <section id="transform_data">
@@ -1792,7 +1991,7 @@ A Folium map object showing the locations of the weather stations in the given s
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">transform_station_status</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">station_status</span>,</span><span class="param">	<span class="n">today</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>,</span><span class="param">	<span class="n">transformed_data</span><span class="o">=</span><span class="kc">True</span></span><span class="return-annotation">):</span></span>
+        <span class="name">transform_station_status</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">station_status</span>,</span><span class="param">	<span class="n">today</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>,</span><span class="param">	<span class="n">transformed_data</span><span class="o">=</span><span class="kc">True</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
